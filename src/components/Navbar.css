@@ -1,0 +1,44 @@
+.navcontainer {
+    display: flex;
+    max-width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 1.5rem;
+}
+
+.logo {
+    padding: 1rem;
+    margin-left: 2rem;
+    margin-right: 2rem;
+}
+
+.logo a {
+    text-decoration: none;
+    font-size: 2rem;
+    font-weight: bold;
+    color: white;
+}
+
+.navlinks a {
+    text-decoration: none;
+    padding: 1rem;
+    padding-right: 2rem;
+    padding-left: 2rem;
+    margin-left: 2rem;
+    margin-right: 2rem;
+    color: white;
+}
+
+.navlinks a:hover {
+    opacity: 0.5;
+}
+
+.signin:hover {
+    background-color: purple;
+    opacity: 0.5;
+}
+
+.signin {
+    border-radius: 15px;
+    border: solid purple 1px;
+}
