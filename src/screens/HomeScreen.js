@@ -13,6 +13,14 @@ const HomeScreen = () => {
                 <h4>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Rhoncus aenean vel elit scelerisque mauris pellentesque pulvinar pellentesque. Elit ullamcorper dignissim cras tincidunt lobortis feugiat vivamus at augue.</h4>
                 <Link to='/register'>Join now</Link>
             </div>
+            <div className='secondsection'>
+                <div className='homeimage'></div>
+                <div className='hometext'><h1>Lorem ipsum dolor sit amet</h1>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Rhoncus aenean vel elit scelerisque mauris pellentesque pulvinar pellentesque. Elit ullamcorper dignissim cras tincidunt lobortis feugiat vivamus at augue.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Rhoncus aenean vel elit scelerisque mauris pellentesque pulvinar pellentesque. Elit ullamcorper dignissim cras tincidunt lobortis feugiat vivamus at augue.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Rhoncus aenean vel elit scelerisque mauris pellentesque pulvinar pellentesque. Elit ullamcorper dignissim cras tincidunt lobortis feugiat vivamus at augue.</div>
+            </div>
+            <div className='thirdsection'>
+                <div className='homeimage'></div>
+                <div className='hometext'><h1>Lorem ipsum dolor sit amet</h1>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Rhoncus aenean vel elit scelerisque mauris pellentesque pulvinar pellentesque. Elit ullamcorper dignissim cras tincidunt lobortis feugiat vivamus at augue.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Rhoncus aenean vel elit scelerisque mauris pellentesque pulvinar pellentesque. Elit ullamcorper dignissim cras tincidunt lobortis feugiat vivamus at augue.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Rhoncus aenean vel elit scelerisque mauris pellentesque pulvinar pellentesque. Elit ullamcorper dignissim cras tincidunt lobortis feugiat vivamus at augue.</div>
+            </div>
         </div>
     </div>
   )
