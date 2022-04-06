@@ -1,4 +1,6 @@
 import React from 'react'
+import Navbar from '../components/Navbar.js'
+import './LoginScreen.css'
 
 const LoginScreen = () => {
 
@@ -25,18 +27,24 @@ const LoginScreen = () => {
   }
 
   return (
-    <div className='form' onSubmit={handleSubmit}>
-        <form>
-            <div className='inputcontainer'>
-                <input type='text' name='username' required />
+    <div className='logincontainer'>
+        <Navbar />
+        <div className='form' onSubmit={handleSubmit}>
+            <div className='logincard'>
+                <form>
+                    <h4>Sign in</h4>
+                    <div className='inputcontainer'>
+                        <input type='text' name='username' placeholder='Username' required />
+                    </div>
+                    <div className='inputcontainer'>
+                        <input type='password' name='password' placeholder='Password' required />
+                    </div>
+                    <div className='submit'>
+                        <input type='submit' />
+                    </div>
+                </form>
             </div>
-            <div className='inputcontainer'>
-                <input type='password' name='password' required />
-            </div>
-            <div className='submit'>
-                <input type='submit' />
-            </div>
-        </form>
+        </div>
     </div>
   )
 }
