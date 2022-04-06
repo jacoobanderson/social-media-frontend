@@ -1,13 +1,13 @@
 import React from "react";
 import Navbar from "../components/Navbar.js";
-import "./LoginScreen.css";
+import "./RegisterScreen.css";
 
-const LoginScreen = () => {
+const RegisterScreen = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
       const response = await fetch(
-        process.env.REACT_APP_ACCOUNT_API + "/login",
+        process.env.REACT_APP_ACCOUNT_API + "/register",
         {
           method: "POST",
           mode: "cors",
@@ -16,25 +16,51 @@ const LoginScreen = () => {
             "Content-type": "application/json",
           },
           body: JSON.stringify({
+            firstName: `${event.target.firstname.value}`,
+            lastName: `${event.target.lastname.value}`,
+            email: `${event.target.email.value}`,
             username: `${event.target.username.value}`,
-            password: `${event.target.password.value}`,
+            password: `${event.target.password.value}`
           }),
         }
-      )
+      );
       const res = await response.json();
       console.log(await res);
     } catch (err) {
       console.log(err);
     }
-  }
-
+  };
   return (
-    <div className='logincontainer'>
+    <div className='registercontainer'>
       <Navbar />
       <div className='form'>
-        <div className='logincard'>
+        <div className='registercard'>
           <form onSubmit={handleSubmit}>
-            <h4>Sign in</h4>
+            <h4>Register</h4>
+            <div className='inputcontainer'>
+              <input
+                type='text'
+                name='firstname'
+                placeholder='First name'
+                required
+              />
+            </div>
+            <div className='inputcontainer'>
+              <input
+                type='text'
+                name='lastname'
+                placeholder='Last name'
+                required
+              />
+            </div>
+            <div className='inputcontainer'>
+              <input
+                type='email'
+                name='email'
+                placeholder='Email'
+                required
+              />
+            </div>
             <div className='inputcontainer'>
               <input
                 type='text'
@@ -61,4 +87,4 @@ const LoginScreen = () => {
   );
 };
 
-export default LoginScreen;
+export default RegisterScreen;
