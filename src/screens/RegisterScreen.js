@@ -1,19 +1,19 @@
-import React from "react";
-import Navbar from "../components/Navbar.js";
-import "./RegisterScreen.css";
+import React from 'react'
+import Navbar from '../components/Navbar.js'
+import './RegisterScreen.css'
 
 const RegisterScreen = () => {
   const handleSubmit = async (event) => {
-    event.preventDefault();
+    event.preventDefault()
     try {
       const response = await fetch(
-        process.env.REACT_APP_ACCOUNT_API + "/register",
+        process.env.REACT_APP_ACCOUNT_API + '/register',
         {
-          method: "POST",
-          mode: "cors",
-          credentials: "include",
+          method: 'POST',
+          mode: 'cors',
+          credentials: 'include',
           headers: {
-            "Content-type": "application/json",
+            'Content-type': 'application/json'
           },
           body: JSON.stringify({
             firstName: `${event.target.firstname.value}`,
@@ -21,15 +21,15 @@ const RegisterScreen = () => {
             email: `${event.target.email.value}`,
             username: `${event.target.username.value}`,
             password: `${event.target.password.value}`
-          }),
+          })
         }
-      );
-      const res = await response.json();
-      console.log(await res);
+      )
+      const res = await response.json()
+      console.log(await res)
     } catch (err) {
-      console.log(err);
+      console.log(err)
     }
-  };
+  }
   return (
     <div className='registercontainer'>
       <Navbar />
@@ -84,7 +84,7 @@ const RegisterScreen = () => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default RegisterScreen;
+export default RegisterScreen

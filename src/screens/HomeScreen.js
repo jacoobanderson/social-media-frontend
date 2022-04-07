@@ -1,7 +1,7 @@
-import React from "react";
-import Navbar from "../components/Navbar.js";
-import "./HomeScreen.css";
-import { Link } from "react-router-dom";
+import React from 'react'
+import Navbar from '../components/Navbar.js'
+import './HomeScreen.css'
+import { Link } from 'react-router-dom'
 
 const HomeScreen = () => {
   return (
@@ -59,7 +59,7 @@ const HomeScreen = () => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default HomeScreen;
+export default HomeScreen

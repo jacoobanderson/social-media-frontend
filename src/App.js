@@ -1,10 +1,11 @@
-import "./App.css";
-import LoginScreen from "./screens/LoginScreen.js";
-import HomeScreen from "./screens/HomeScreen.js";
-import RegisterScreen from "./screens/RegisterScreen.js";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import './App.css'
+import LoginScreen from './screens/LoginScreen.js'
+import HomeScreen from './screens/HomeScreen.js'
+import RegisterScreen from './screens/RegisterScreen.js'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import React from 'react'
 
-function App() {
+function App () {
   return (
     <BrowserRouter>
       <Routes>
@@ -13,7 +14,7 @@ function App() {
         <Route path='/register' element={<RegisterScreen />} />
       </Routes>
     </BrowserRouter>
-  );
+  )
 }
 
-export default App;
+export default App

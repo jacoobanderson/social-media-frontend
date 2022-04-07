@@ -1,30 +1,30 @@
-import React from "react";
-import Navbar from "../components/Navbar.js";
-import "./LoginScreen.css";
+import React from 'react'
+import Navbar from '../components/Navbar.js'
+import './LoginScreen.css'
 
 const LoginScreen = () => {
   const handleSubmit = async (event) => {
-    event.preventDefault();
+    event.preventDefault()
     try {
       const response = await fetch(
-        process.env.REACT_APP_ACCOUNT_API + "/login",
+        process.env.REACT_APP_ACCOUNT_API + '/login',
         {
-          method: "POST",
-          mode: "cors",
-          credentials: "include",
+          method: 'POST',
+          mode: 'cors',
+          credentials: 'include',
           headers: {
-            "Content-type": "application/json",
+            'Content-type': 'application/json'
           },
           body: JSON.stringify({
             username: `${event.target.username.value}`,
-            password: `${event.target.password.value}`,
-          }),
+            password: `${event.target.password.value}`
+          })
         }
       )
-      const res = await response.json();
-      console.log(await res);
+      const res = await response.json()
+      console.log(await res)
     } catch (err) {
-      console.log(err);
+      console.log(err)
     }
   }
 
@@ -58,7 +58,7 @@ const LoginScreen = () => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default LoginScreen;
+export default LoginScreen
