@@ -1,5 +1,6 @@
 import React from 'react'
 import Navbar from '../components/Navbar.js'
+import { useNavigate } from 'react-router-dom'
 import './LoginScreen.css'
 
 /**
@@ -8,6 +9,7 @@ import './LoginScreen.css'
  * @returns {React.ReactElement} The login screen.
  */
 const LoginScreen = () => {
+  const navigate = useNavigate()
   /**
    * Handles the login when submit is pressed.
    *
@@ -17,7 +19,7 @@ const LoginScreen = () => {
     event.preventDefault()
     try {
       const response = await fetch(
-        process.env.REACT_APP_ACCOUNT_API + '/login',
+        process.env.REACT_APP_ACCOUNT_API + 'login',
         {
           method: 'POST',
           mode: 'cors',
@@ -32,7 +34,7 @@ const LoginScreen = () => {
         }
       )
       const res = await response.json()
-      console.log(await res)
+      navigate(`/${res.id}/overview`)
     } catch (err) {
       console.log(err)
     }
