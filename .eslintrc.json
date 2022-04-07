@@ -5,7 +5,8 @@
     },
     "extends": [
         "plugin:react/recommended",
-        "standard"
+        "standard",
+        "plugin:jsdoc/recommended"
     ],
     "parserOptions": {
         "ecmaFeatures": {
@@ -18,5 +19,17 @@
         "react"
     ],
     "rules": {
+           "jsdoc/require-jsdoc": [
+              "error",
+              {
+                "publicOnly": false,
+                "require": {
+                  "FunctionExpression": true,
+                  "ArrowFunctionExpression": true,
+                  "FunctionDeclaration": true,
+                  "MethodDefinition": true
+                }
+              }
+            ]
     }
 }

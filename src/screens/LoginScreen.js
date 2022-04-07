@@ -2,7 +2,17 @@ import React from 'react'
 import Navbar from '../components/Navbar.js'
 import './LoginScreen.css'
 
+/**
+ * Represents the login screen.
+ *
+ * @returns {React.ReactElement} The login screen.
+ */
 const LoginScreen = () => {
+  /**
+   * Handles the login when submit is pressed.
+   *
+   * @param {object} event The data of the event.
+   */
   const handleSubmit = async (event) => {
     event.preventDefault()
     try {

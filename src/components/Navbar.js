@@ -2,6 +2,11 @@ import React from 'react'
 import './Navbar.css'
 import { Link } from 'react-router-dom'
 
+/**
+ * Represents the navigation bar component.
+ *
+ * @returns {React.ReactElement} The navigation bar.
+ */
 const Navbar = () => {
   return (
     <div className='navcontainer'>

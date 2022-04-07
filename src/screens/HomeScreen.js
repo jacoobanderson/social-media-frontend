@@ -3,6 +3,11 @@ import Navbar from '../components/Navbar.js'
 import './HomeScreen.css'
 import { Link } from 'react-router-dom'
 
+/**
+ * Represents the home screen.
+ *
+ * @returns {React.ReactElement} The screen.
+ */
 const HomeScreen = () => {
   return (
     <div className='homecontainer'>

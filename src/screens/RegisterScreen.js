@@ -2,7 +2,17 @@ import React from 'react'
 import Navbar from '../components/Navbar.js'
 import './RegisterScreen.css'
 
+/**
+ * Represents the register screen.
+ *
+ * @returns {React.ReactElement} The screen.
+ */
 const RegisterScreen = () => {
+  /**
+   * Handles the registration when submit is pressed.
+   *
+   * @param {object} event The event that occurs.
+   */
   const handleSubmit = async (event) => {
     event.preventDefault()
     try {

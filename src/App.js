@@ -5,6 +5,11 @@ import RegisterScreen from './screens/RegisterScreen.js'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import React from 'react'
 
+/**
+ * The app.
+ *
+ * @returns {React.ReactElement} The different screens.
+ */
 function App () {
   return (
     <BrowserRouter>
