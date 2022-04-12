@@ -3,7 +3,9 @@ import './Logout.css'
 import { useNavigate } from 'react-router-dom'
 
 /**
+ * Handles the logout functionality.
  *
+ * @returns {React.ReactElement} The react component.
  */
 const Logout = () => {
   const navigate = useNavigate()

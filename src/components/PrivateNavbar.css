@@ -6,8 +6,42 @@
     padding-top: 1.5rem;
 }
 
+.privatenavbarcontainer a {
+    text-decoration: none;
+}
+
 .rightprivatenav {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.leftprivatenav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    padding-right: 2rem;
+    padding-left: 2rem;
+    margin-left: 2rem;
+    margin-right: 2rem;
+}
+
+.leftprivatenav a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    padding-right: 2rem;
+    padding-left: 2rem;
+    margin-left: 2rem;
+    margin-right: 2rem;
+    color: white;
+    border: solid 1px purple;
+    border-radius: 15px;
+}
+
+.leftprivatenav a:hover {
+    opacity: 0.5;
+    background-color: purple;
 }
