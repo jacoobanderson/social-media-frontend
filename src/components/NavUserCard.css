@@ -1,0 +1,40 @@
+.navcardcontainer {
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    padding: 1rem;
+    padding-right: 2rem;
+    padding-left: 2rem;
+    margin-left: 2rem;
+    margin-right: 2rem;
+    color: white;
+    display: flex;
+}
+
+.navcardimg {
+    display: inline-block;
+    border-radius: 50%;
+    width: 3rem;
+    height: 3rem;
+    border: 1px solid white;
+}
+
+.navcardcontainer:hover {
+    opacity: 0.5;
+    cursor: pointer;
+}
+.navcardimg img{
+    display: block;
+    height: 100%;
+    width: 100%;
+    display: grid;
+    justify-self: center;
+    align-self: center;
+}
+
+
+.navcardname {
+    display: inline-block;
+    text-align: center;
+    margin-left: 1rem;
+}

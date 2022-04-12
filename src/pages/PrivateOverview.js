@@ -1,13 +1,16 @@
-import React, { useContext } from 'react'
-import { UserContext } from '../hooks/UserContext'
-import Logout from '../components/Logout.js'
+import React from 'react'
+// import { UserContext } from '../hooks/UserContext'
+import './PrivateOverview.css'
+import PrivateNavbar from '../components/PrivateNavbar.js'
 /**
  *
  */
 const PrivateOverview = () => {
-  const user = useContext(UserContext).user
+  // const user = useContext(UserContext).user
   return (
-    <div>{user.id} {user.username} <Logout /></div>
+    <div className='overviewcontainer'>
+      <PrivateNavbar />
+    </div>
   )
 }
 

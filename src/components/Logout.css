@@ -1,0 +1,19 @@
+.logoutbutton {
+    all: unset;
+    text-decoration: none;
+    padding: 1rem;
+    padding-right: 2rem;
+    padding-left: 2rem;
+    margin-left: 2rem;
+    margin-right: 2rem;
+    color: white;
+    cursor: pointer;
+}
+
+.logoutbutton:hover {
+    opacity: 0.5;
+}
+
+.logoutbuttondiv {
+    display: inline-block;
+}
