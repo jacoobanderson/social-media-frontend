@@ -1,24 +1,24 @@
 import './App.css'
-import LoginScreen from './screens/LoginScreen.js'
-import HomeScreen from './screens/HomeScreen.js'
-import RegisterScreen from './screens/RegisterScreen.js'
+import Login from './pages/Login.js'
+import Home from './pages/Home.js'
+import Register from './pages/Register.js'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import PrivateRoute from './screens/PrivateRoute.js'
-import PrivateOverview from './screens/PrivateOverview.js'
+import PrivateRoute from './pages/PrivateRoute.js'
+import PrivateOverview from './pages/PrivateOverview.js'
 import React from 'react'
 
 /**
  * The app.
  *
- * @returns {React.ReactElement} The different screens.
+ * @returns {React.ReactElement} The different pages.
  */
 function App () {
   return (
     <BrowserRouter>
         <Routes>
-          <Route path='/' element={<HomeScreen />} />
-          <Route path='/login' element={<LoginScreen />} />
-          <Route path='/register' element={<RegisterScreen />} />
+          <Route path='/' element={<Home />} />
+          <Route path='/login' element={<Login />} />
+          <Route path='/register' element={<Register />} />
           <Route path='/:id/overview' element={
             <PrivateRoute>
               <PrivateOverview />

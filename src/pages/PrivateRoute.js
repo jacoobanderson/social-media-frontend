@@ -25,7 +25,7 @@ const PrivateRoute = ({ children }) => {
    */
   async function verifyUser () {
     const response = await fetch(
-      process.env.REACT_APP_ACCOUNT_API + `user/${id}/info`,
+      process.env.REACT_APP_ACCOUNT_API + `/user/${id}/info`,
       {
         method: 'GET',
         mode: 'cors',

@@ -1,14 +1,14 @@
 import React from 'react'
 import Navbar from '../components/Navbar.js'
-import './HomeScreen.css'
+import './Home.css'
 import { Link } from 'react-router-dom'
 
 /**
- * Represents the home screen.
+ * Represents the home page.
  *
- * @returns {React.ReactElement} The screen.
+ * @returns {React.ReactElement} The page.
  */
-const HomeScreen = () => {
+const Home = () => {
   return (
     <div className='homecontainer'>
       <Navbar />
@@ -67,4 +67,4 @@ const HomeScreen = () => {
   )
 }
 
-export default HomeScreen
+export default Home

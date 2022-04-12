@@ -1,23 +1,26 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Navbar from '../components/Navbar.js'
-import './RegisterScreen.css'
+import { useNavigate } from 'react-router-dom'
+import './LoginScreen.css'
 
 /**
- * Represents the register screen.
+ * Represents the login screen.
  *
- * @returns {React.ReactElement} The screen.
+ * @returns {React.ReactElement} The login screen.
  */
-const RegisterScreen = () => {
+const LoginScreen = () => {
+  const navigate = useNavigate()
+  const [error, setError] = useState('')
   /**
-   * Handles the registration when submit is pressed.
+   * Handles the login when submit is pressed.
    *
-   * @param {object} event The event that occurs.
+   * @param {object} event The data of the event.
    */
   const handleSubmit = async (event) => {
     event.preventDefault()
     try {
       const response = await fetch(
-        process.env.REACT_APP_ACCOUNT_API + '/register',
+        process.env.REACT_APP_ACCOUNT_API + '/login',
         {
           method: 'POST',
           mode: 'cors',
@@ -26,51 +29,30 @@ const RegisterScreen = () => {
             'Content-type': 'application/json'
           },
           body: JSON.stringify({
-            firstName: `${event.target.firstname.value}`,
-            lastName: `${event.target.lastname.value}`,
-            email: `${event.target.email.value}`,
             username: `${event.target.username.value}`,
             password: `${event.target.password.value}`
           })
         }
       )
       const res = await response.json()
-      console.log(await res)
+      if (response.status === 201) {
+        navigate(`/${res.id}/overview`)
+      } else {
+        setError(res.message)
+      }
     } catch (err) {
       console.log(err)
     }
   }
+
   return (
-    <div className='registercontainer'>
+    <div className='logincontainer'>
       <Navbar />
       <div className='form'>
-        <div className='registercard'>
+        <div className='logincard'>
+          <p>{error}</p>
           <form onSubmit={handleSubmit}>
-            <h4>Register</h4>
-            <div className='inputcontainer'>
-              <input
-                type='text'
-                name='firstname'
-                placeholder='First name'
-                required
-              />
-            </div>
-            <div className='inputcontainer'>
-              <input
-                type='text'
-                name='lastname'
-                placeholder='Last name'
-                required
-              />
-            </div>
-            <div className='inputcontainer'>
-              <input
-                type='email'
-                name='email'
-                placeholder='Email'
-                required
-              />
-            </div>
+            <h4>Sign in</h4>
             <div className='inputcontainer'>
               <input
                 type='text'
@@ -97,4 +79,4 @@ const RegisterScreen = () => {
   )
 }
 
-export default RegisterScreen
+export default LoginScreen
