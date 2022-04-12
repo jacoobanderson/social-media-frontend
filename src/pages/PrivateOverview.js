@@ -1,13 +1,13 @@
 import React, { useContext } from 'react'
 import { UserContext } from '../hooks/UserContext'
-
+import Logout from '../components/Logout.js'
 /**
  *
  */
 const PrivateOverview = () => {
-  const user = useContext(UserContext)
+  const user = useContext(UserContext).user
   return (
-    <div>PrivateOverview {console.log(user.user)} </div>
+    <div>{user.id} {user.username} <Logout /></div>
   )
 }
 
