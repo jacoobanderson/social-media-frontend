@@ -21,7 +21,11 @@ const Logout = () => {
     navigate('/')
   }
   return (
-    <div className='logoutbuttondiv'><button className='logoutbutton' onClick={handleSubmit} type='submit'>Log out</button></div>
+    <div className='logoutbuttondiv'>
+      <button className='logoutbutton' onClick={handleSubmit} type='submit'>
+        Log out
+      </button>
+    </div>
   )
 }
 

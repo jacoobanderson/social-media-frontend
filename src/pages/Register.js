@@ -67,12 +67,7 @@ const Register = () => {
               />
             </div>
             <div className='inputcontainer'>
-              <input
-                type='email'
-                name='email'
-                placeholder='Email'
-                required
-              />
+              <input type='email' name='email' placeholder='Email' required />
             </div>
             <div className='inputcontainer'>
               <input

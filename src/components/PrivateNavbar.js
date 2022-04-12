@@ -11,14 +11,16 @@ const PrivateNavbar = () => {
   const { id } = useParams()
   return (
     <div className='privatenavbarcontainer'>
-        <div className='leftprivatenav'>
-            <Link to={`/${id}/friends`}>Friends</Link>
-            <Link to={`/${id}/find`}>Find</Link>
-        </div>
-        <div className='rightprivatenav'>
-            <Link to={`/${id}/profile`}><NavUserCard /></Link>
-            <Logout />
-        </div>
+      <div className='leftprivatenav'>
+        <Link to={`/${id}/friends`}>Friends</Link>
+        <Link to={`/${id}/find`}>Find</Link>
+      </div>
+      <div className='rightprivatenav'>
+        <Link to={`/${id}/profile`}>
+          <NavUserCard />
+        </Link>
+        <Logout />
+      </div>
     </div>
   )
 }
