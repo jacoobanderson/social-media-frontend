@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import { useParams, Navigate } from 'react-router-dom'
+import { UserContext } from '../hooks/UserContext.js'
 
 /**
  *
@@ -9,6 +10,7 @@ import { useParams, Navigate } from 'react-router-dom'
 const PrivateRoute = ({ children }) => {
   const [isAuth, setIsAuth] = useState()
   const { id } = useParams()
+  const { setUser } = useContext(UserContext)
 
   useEffect(() => {
     /**
@@ -32,6 +34,7 @@ const PrivateRoute = ({ children }) => {
         credentials: 'include'
       }
     )
+    setUser(await response.json())
     return response.status === 201
   }
   if (isAuth === undefined) return null

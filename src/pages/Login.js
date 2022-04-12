@@ -1,14 +1,14 @@
 import React, { useState } from 'react'
 import Navbar from '../components/Navbar.js'
 import { useNavigate } from 'react-router-dom'
-import './LoginScreen.css'
+import './Login.css'
 
 /**
- * Represents the login screen.
+ * Represents the login page.
  *
- * @returns {React.ReactElement} The login screen.
+ * @returns {React.ReactElement} The login page.
  */
-const LoginScreen = () => {
+const Login = () => {
   const navigate = useNavigate()
   const [error, setError] = useState('')
   /**
@@ -79,4 +79,4 @@ const LoginScreen = () => {
   )
 }
 
-export default LoginScreen
+export default Login
