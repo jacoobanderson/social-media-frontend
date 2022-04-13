@@ -1,11 +1,25 @@
-import React, { useState } from "react";
-import "./ProfileDetailed.css";
+import React, { useState } from 'react'
+import './ProfileDetailed.css'
 
 /**
  *
  */
-const ProfileDetailed = () => {
-  const [readOnly, setReadOnly] = useState(true);
+const ProfileDetailed = (props) => {
+  const [readOnly, setReadOnly] = useState(true)
+
+  /**
+   *
+   */
+  const handleEdit = () => {
+    setReadOnly(false)
+  }
+
+  /**
+   *
+   */
+  const handleSave = () => {
+    setReadOnly(true)
+  }
   return (
     <div className='profiledcontainer'>
       <div className='profiledetailed'>
@@ -15,7 +29,7 @@ const ProfileDetailed = () => {
             <input
               name='fullname'
               type='text'
-              defaultValue='TEST'
+              defaultValue={props.user.firstname + ' ' + props.user.lastname}
               readOnly={readOnly}
             />
           </div>
@@ -24,16 +38,16 @@ const ProfileDetailed = () => {
             <input
               name='school'
               type='text'
-              defaultValue='TEST'
+              defaultValue={props.user.school}
               readOnly={readOnly}
             />
           </div>
           <div>
-            <label htmlFor='country'>Location:</label>
+            <label htmlFor='location'>Location:</label>
             <input
-              name='country'
+              name='location'
               type='text'
-              defaultValue='TEST'
+              defaultValue={props.user.location}
               readOnly={readOnly}
             />
           </div>
@@ -84,13 +98,35 @@ const ProfileDetailed = () => {
           </div>
         </div>
         <div className='detailedright'>
-          <h4>asdadds</h4>
-          <h4>asdadsas</h4>
-          <h4>asdasdas</h4>
+          <div className='profilepic'>
+            <div>
+              PICTURE<button>Add picture</button>
+            </div>
+            <button onClick={handleEdit}>Edit</button>
+            <button onClick={handleSave}>Save</button>
+          </div>
+          <div>
+            <label htmlFor='description'>Description:</label>
+            <textarea
+              name='description'
+              type='text'
+              defaultValue={props.user.description}
+              readOnly={readOnly}
+            />
+          </div>
+          <div>
+            <label htmlFor='goals'>Goals:</label>
+            <textarea
+              name='goals'
+              type='text'
+              defaultValue={props.user.goals}
+              readOnly={readOnly}
+            />
+          </div>
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default ProfileDetailed;
+export default ProfileDetailed

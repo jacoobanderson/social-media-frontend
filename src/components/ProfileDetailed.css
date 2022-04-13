@@ -44,9 +44,64 @@
 
 .detailedleft {
    height: 100%;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   width: 100%;
+}
 
+.detailedleft input {
+    width: 80%;
+    margin-bottom: 0.5rem;
+    border: none;
+    outline: none;
+    background: rgb(40, 40, 40);
+    padding: 0.6rem;  
+    color: rgb(160, 160, 160);
+    border-radius: 10px;
+}
+
+.detailedleft label {
+    margin-bottom: 0.5rem;
+    color: rgb(75, 75, 75)
+}
+
+.detailedleft div {
+    width: 80%;
 }
 
 .detailedright {
     height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.detailedright textarea {
+    width: 100%;
+    height: 10rem;
+    margin-bottom: 0.5rem;
+    border: none;
+    outline: none;
+    resize: none;
+    background: rgb(40, 40, 40);
+    padding: 0.6rem;  
+    color: rgb(160, 160, 160);
+    border-radius: 10px;
+}
+
+.detailedright div {
+    width: 80%;
+}
+
+.detailedright label {
+    margin-bottom: 0.5rem;
+    color: rgb(75, 75, 75)
+}
+
+.profilepic {
+    margin: 1.5rem;
 }
