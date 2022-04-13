@@ -3,9 +3,11 @@ import { useParams, Navigate } from 'react-router-dom'
 import { UserContext } from '../hooks/UserContext.js'
 
 /**
+ * Acts like a gateway to the private page.
  *
- * @param root0
- * @param root0.children
+ * @param {React.ReactElement} root0 props.
+ * @param {React.ReactElement} root0.children The children elements.
+ * @returns {React.ReactElement} The element.
  */
 const PrivateRoute = ({ children }) => {
   const [isAuth, setIsAuth] = useState()

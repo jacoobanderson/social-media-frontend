@@ -2,6 +2,7 @@ import './App.css'
 import Login from './pages/Login.js'
 import Home from './pages/Home.js'
 import Register from './pages/Register.js'
+import Profile from './pages/Profile.js'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import PrivateRoute from './pages/PrivateRoute.js'
 import PrivateOverview from './pages/PrivateOverview.js'
@@ -22,10 +23,18 @@ function App () {
           <Route path='/login' element={<Login />} />
           <Route path='/register' element={<Register />} />
           <Route
-            path='/:id/overview'
+            path='/:id/find'
             element={
               <PrivateRoute>
                 <PrivateOverview />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path='/:id/profile'
+            element={
+              <PrivateRoute>
+                <Profile />
               </PrivateRoute>
             }
           />

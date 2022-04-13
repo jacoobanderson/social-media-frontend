@@ -36,7 +36,7 @@ const Login = () => {
       )
       const res = await response.json()
       if (response.status === 201) {
-        navigate(`/${res.id}/overview`)
+        navigate(`/${res.id}/find`)
       } else {
         setError(res.message)
       }
