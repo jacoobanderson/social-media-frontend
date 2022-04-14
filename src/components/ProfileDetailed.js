@@ -8,7 +8,29 @@ import './ProfileDetailed.css'
  */
 const ProfileDetailed = (props) => {
   const [readOnly, setReadOnly] = useState(true)
+  const [image, setImage] = useState(props.user.image)
   const { id } = useParams()
+
+  /**
+   * Converts a file to base64.
+   *
+   * @param {object} event The event.
+   * @param file
+   */
+  const getBase64 = async (file) => {
+    const reader = new FileReader()
+
+    return new Promise((resolve) => {
+      /**
+       *
+       * @param event
+       */
+      reader.onload = (event) => {
+        resolve(event.target.result)
+      }
+      reader.readAsDataURL(file)
+    })
+  }
 
   /**
    * Handles the edit functionality of the profile.
@@ -28,6 +50,15 @@ const ProfileDetailed = (props) => {
   const handleSave = async (event) => {
     event.preventDefault()
     setReadOnly(true)
+
+    let imageUrl = props.user.image
+
+    const image = event.target.avatar.files[0]
+    if (image) {
+      imageUrl = await getBase64(image)
+    }
+
+    setImage(imageUrl)
 
     const firstname = event.target.fullname.value.split(' ')[0]
     const lastname = event.target.fullname.value.split(' ')[1]
@@ -49,6 +80,7 @@ const ProfileDetailed = (props) => {
             location: `${event.target.location.value}`,
             description: `${event.target.description.value}`,
             goals: `${event.target.goals.value}`,
+            image: `${imageUrl}`,
             programming: [
               `${event.target.pl1.value}`,
               `${event.target.pl2.value}`,
@@ -150,7 +182,8 @@ const ProfileDetailed = (props) => {
           <div className='detailedright'>
             <div className='profilepic'>
               <div>
-                PICTURE<button>Add picture</button>
+                <img src={image} alt='profilepic' />
+                <input type='file' name='avatar' />
               </div>
               <button onClick={handleEdit}>Edit</button>
               <button type='submit'>Save</button>

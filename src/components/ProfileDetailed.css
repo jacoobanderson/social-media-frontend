@@ -105,3 +105,8 @@
 .profilepic {
     margin: 1.5rem;
 }
+
+.profilepic img {
+    width: 3rem;
+    height: 3rem;
+}
