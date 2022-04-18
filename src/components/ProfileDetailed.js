@@ -22,8 +22,9 @@ const ProfileDetailed = (props) => {
 
     return new Promise((resolve) => {
       /**
+       * Reads the file on load.
        *
-       * @param event
+       * @param {object} event the event.
        */
       reader.onload = (event) => {
         resolve(event.target.result)
@@ -181,30 +182,40 @@ const ProfileDetailed = (props) => {
           </div>
           <div className='detailedright'>
             <div className='profilepic'>
+              {props.user.id === id
+                ? (
+                <div className='profilepic'>
+                  <div>
+                    <img src={image} alt='profile pic' />
+                    <input type='file' name='avatar' />
+                  </div>
+                  <button onClick={handleEdit}>Edit</button>
+                  <button type='submit'>Save</button>
+                </div>
+                  )
+                : (
+                <div className='profilepic'>
+                  <img src={image} alt='profile pic' />
+                </div>
+                  )}
               <div>
-                <img src={image} alt='profilepic' />
-                <input type='file' name='avatar' />
+                <label htmlFor='description'>Description:</label>
+                <textarea
+                  name='description'
+                  type='text'
+                  defaultValue={props.user.description}
+                  readOnly={readOnly}
+                />
               </div>
-              <button onClick={handleEdit}>Edit</button>
-              <button type='submit'>Save</button>
-            </div>
-            <div>
-              <label htmlFor='description'>Description:</label>
-              <textarea
-                name='description'
-                type='text'
-                defaultValue={props.user.description}
-                readOnly={readOnly}
-              />
-            </div>
-            <div>
-              <label htmlFor='goals'>Goals:</label>
-              <textarea
-                name='goals'
-                type='text'
-                defaultValue={props.user.goals}
-                readOnly={readOnly}
-              />
+              <div>
+                <label htmlFor='goals'>Goals:</label>
+                <textarea
+                  name='goals'
+                  type='text'
+                  defaultValue={props.user.goals}
+                  readOnly={readOnly}
+                />
+              </div>
             </div>
           </div>
         </div>
