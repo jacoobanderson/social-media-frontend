@@ -2,6 +2,7 @@ import React from 'react'
 // import { UserContext } from '../hooks/UserContext'
 import './PrivateOverview.css'
 import PrivateNavbar from '../components/PrivateNavbar.js'
+// import ProfileSummary from '../components/ProfileSummary.js'
 /**
  *
  */
