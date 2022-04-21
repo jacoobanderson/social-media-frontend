@@ -10,18 +10,18 @@ import ProfileSummary from '../components/ProfileSummary'
  */
 const PrivateOverview = () => {
   const users = useContext(UserFeed).users
-  const [user, setUser] = useState()
+  const [userIndex, setUserIndex] = useState(0)
 
   const handleConnect = () => {
-
+    setUserIndex(userIndex + 1)
   }
 
   return (
     <div className='overviewcontainer'>
       <PrivateNavbar />
-      <ProfileSummary user={users[7]} />
+      <ProfileSummary user={users[userIndex]} />
       <div>
-        <button type='submit'>Connect</button>
+        <button onClick={handleConnect} type='submit'>Connect</button>
       </div>
     </div>
   )
