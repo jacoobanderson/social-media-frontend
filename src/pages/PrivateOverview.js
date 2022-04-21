@@ -1,42 +1,28 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useContext, useState } from 'react'
 // import { UserContext } from '../hooks/UserContext'
 import './PrivateOverview.css'
 import PrivateNavbar from '../components/PrivateNavbar.js'
-import { useParams } from 'react-router-dom'
+import { UserFeed } from '../hooks/UserFeed.js'
+import ProfileSummary from '../components/ProfileSummary'
 // import ProfileSummary from '../components/ProfileSummary.js'
 /**
  *
  */
 const PrivateOverview = () => {
-  // const user = useContext(UserContext).user
-  const { id } = useParams()
+  const users = useContext(UserFeed).users
+  const [user, setUser] = useState()
 
-  useEffect(() => {
-    const fetchUsers = async () => {
-      const users = await getUsers()
-      console.log(users)
-    }
-    fetchUsers()
-  }, [])
+  const handleConnect = () => {
 
-  /**
-   *
-   */
-  const getUsers = async () => {
-    const response = await fetch(
-      process.env.REACT_APP_ACCOUNT_API + `/user/${id}/all`,
-      {
-        method: 'GET',
-        mode: 'cors',
-        credentials: 'include'
-      }
-    )
-    return await response.json()
   }
 
   return (
     <div className='overviewcontainer'>
       <PrivateNavbar />
+      <ProfileSummary user={users[7]} />
+      <div>
+        <button type='submit'>Connect</button>
+      </div>
     </div>
   )
 }
