@@ -16,7 +16,6 @@ const Profile = () => {
     <div className='profilecontainer'>
         <PrivateNavbar />
         <ProfileDetailed user={user}/>
-        <ProfileSummary user={user} />
     </div>
   )
 }

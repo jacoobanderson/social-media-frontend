@@ -3,3 +3,7 @@
     height: 100%;
     color: white;
 }
+
+.animate {
+    transition: transform .8s ease-in-out;
+}
