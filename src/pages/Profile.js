@@ -2,7 +2,6 @@ import React, { useContext } from 'react'
 import './Profile.css'
 import PrivateNavbar from '../components/PrivateNavbar.js'
 import ProfileDetailed from '../components/ProfileDetailed.js'
-import ProfileSummary from '../components/ProfileSummary.js'
 import { UserContext } from '../hooks/UserContext'
 
 /**

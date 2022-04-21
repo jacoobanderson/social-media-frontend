@@ -1,10 +1,9 @@
 import React, { useContext, useState } from 'react'
-// import { UserContext } from '../hooks/UserContext'
 import './PrivateOverview.css'
 import PrivateNavbar from '../components/PrivateNavbar.js'
 import { UserFeed } from '../hooks/UserFeed.js'
 import ProfileSummary from '../components/ProfileSummary'
-// import ProfileSummary from '../components/ProfileSummary.js'
+
 /**
  * Main private page that shows the matchable users.
  */

@@ -9,11 +9,14 @@ import './ProfileSummary.css'
 const ProfileSummary = (props) => {
   const [summary, setSummary] = useState(true)
 
+  // Sets summary to true and shows the summary when the state of parent changes.
+  // Parent state changes when the "connect button is clicked, makes the next user shown in summarized profile"
   useEffect(() => {
     setSummary(true)
   }, [props.connectState])
 
-  console.log(summary)
+  // Two conditionals, if not undefined show user, if undefined show "message" > No more users to match with.
+  // Nested conditional checks if the state is summary or detailed and renders accordingly.
   return (
     <div>
       {props.user !== undefined

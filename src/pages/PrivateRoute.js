@@ -18,7 +18,7 @@ const PrivateRoute = ({ children }) => {
 
   useEffect(() => {
     /**
-     *
+     * Verifies the user by calling the fetch function which returns a boolean if the user is authenticated, sets the state accordingly.
      */
     async function checkAuth () {
       const auth = await verifyUser()
@@ -30,7 +30,7 @@ const PrivateRoute = ({ children }) => {
   }, [])
 
   /**
-   *
+   * Gets all the users that the current user can be match with.
    */
   const getUsers = async () => {
     const response = await fetch(
@@ -59,6 +59,8 @@ const PrivateRoute = ({ children }) => {
     setUser(await response.json())
     return response.status === 201
   }
+
+  // Checks if the user is authorized and if so, renders the private overview else navigates the user back to the login page.
   if (isAuth === undefined) return null
   return isAuth ? children : <Navigate to='/login' />
 }
