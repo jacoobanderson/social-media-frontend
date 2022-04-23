@@ -3,11 +3,13 @@ import './PrivateOverview.css'
 import PrivateNavbar from '../components/PrivateNavbar.js'
 import { UserFeed } from '../hooks/UserFeed.js'
 import ProfileSummary from '../components/ProfileSummary'
+import { useParams } from 'react-router-dom'
 
 /**
  * Main private page that shows the matchable users.
  */
 const PrivateOverview = () => {
+  const { id } = useParams()
   const users = useContext(UserFeed).users
   const [userIndex, setUserIndex] = useState(0)
 
@@ -18,12 +20,45 @@ const PrivateOverview = () => {
     setUserIndex(userIndex + 1)
   }
 
+  /**
+   * Handles the click on connect button, gets the next user by index.
+   */
+  const handleNext = () => {
+    next()
+    setUserIndex(userIndex + 1)
+  }
+
+  /**
+   *
+   */
+  const connect = () => {}
+
+  /**
+   *
+   */
+  const next = async () => {
+    const response = await fetch(process.env.REACT_APP_ACCOUNT_API + `/user/${id}/friends/decline`, {
+      method: 'PUT',
+      mode: 'cors',
+      credentials: 'include',
+      headers: {
+        'Content-type': 'application/json'
+      },
+      body: JSON.stringify({
+        id: `${users[userIndex].id}`
+      })
+    })
+
+    console.log(response)
+  }
+
   return (
     <div className='overviewcontainer'>
       <PrivateNavbar />
-      <ProfileSummary user={users[userIndex]} connectState={userIndex}/>
+      <ProfileSummary user={users[userIndex]} connectState={userIndex} />
       <div>
         <button onClick={handleConnect}>Connect</button>
+        <button onClick={handleNext}>Next</button>
       </div>
     </div>
   )
