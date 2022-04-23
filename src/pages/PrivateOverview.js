@@ -17,6 +17,7 @@ const PrivateOverview = () => {
    * Handles the click on connect button, gets the next user by index.
    */
   const handleConnect = () => {
+    connect()
     setUserIndex(userIndex + 1)
   }
 
@@ -31,7 +32,21 @@ const PrivateOverview = () => {
   /**
    *
    */
-  const connect = () => {}
+  const connect = async () => {
+    const response = await fetch(process.env.REACT_APP_ACCOUNT_API + `/user/${id}/friends/accept`, {
+      method: 'PUT',
+      mode: 'cors',
+      credentials: 'include',
+      headers: {
+        'Content-type': 'application/json'
+      },
+      body: JSON.stringify({
+        id: `${users[userIndex].id}`
+      })
+    })
+
+    console.log(response)
+  }
 
   /**
    *
