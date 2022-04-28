@@ -3,6 +3,7 @@
     flex-direction: column;
     height: 100%;
     width: 25%;
-    background: white;
     overflow: hidden;
+    margin-left: 3rem;
+    margin-top: 2rem;
 }

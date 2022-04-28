@@ -1,0 +1,25 @@
+.friendimg {
+    border-radius: 50%;
+    width: 2rem;
+    height: 2rem;
+    border: 1px solid black;
+}
+
+.friendCard {
+    padding: 1rem;
+    border: solid 1px rgb(120, 120, 120);
+    display: flex;
+    align-items: center;
+    color: white;
+    background: rgb(40, 40, 40);
+    margin: 0.1rem 1rem 0.1rem 1rem;
+    border-radius: 3px;
+}
+
+.friendCard:hover {
+    opacity: 0.5;
+}
+
+.friendCard img {
+    margin-right: 1rem;
+}
