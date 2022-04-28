@@ -9,6 +9,7 @@ import PrivateOverview from './pages/PrivateOverview.js'
 import { UserContext } from './hooks/UserContext.js'
 import { UserFeed } from './hooks/UserFeed'
 import React, { useState } from 'react'
+import Friends from './pages/Friends'
 /**
  * The app.
  *
@@ -38,6 +39,14 @@ function App () {
             element={
               <PrivateRoute>
                 <Profile />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path='/:id/friends'
+            element={
+              <PrivateRoute>
+                <Friends />
               </PrivateRoute>
             }
           />

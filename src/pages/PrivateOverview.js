@@ -31,10 +31,12 @@ const PrivateOverview = () => {
   }
 
   /**
-   *
+   * Checks if there is a match and if so adds to friends.
    */
-     const checkIfMatch = async () => {
-      const response = await fetch(process.env.REACT_APP_ACCOUNT_API + `/user/${id}/friends/check`, {
+  const checkIfMatch = async () => {
+    const response = await fetch(
+      process.env.REACT_APP_ACCOUNT_API + `/user/${id}/friends/check`,
+      {
         method: 'PATCH',
         mode: 'cors',
         credentials: 'include',
@@ -44,30 +46,34 @@ const PrivateOverview = () => {
         body: JSON.stringify({
           id: `${users[userIndex].id}`
         })
-      })
-      
-      if (response.status === 204) {
-        console.log('MAAAAATCH')
       }
-  
-      console.log(response)
+    )
+
+    if (response.status === 204) {
+      console.log('MAAAAATCH')
     }
+
+    console.log(response)
+  }
 
   /**
    *
    */
   const connect = async () => {
-    const response = await fetch(process.env.REACT_APP_ACCOUNT_API + `/user/${id}/friends/accept`, {
-      method: 'PATCH',
-      mode: 'cors',
-      credentials: 'include',
-      headers: {
-        'Content-type': 'application/json'
-      },
-      body: JSON.stringify({
-        id: `${users[userIndex].id}`
-      })
-    })
+    const response = await fetch(
+      process.env.REACT_APP_ACCOUNT_API + `/user/${id}/friends/accept`,
+      {
+        method: 'PATCH',
+        mode: 'cors',
+        credentials: 'include',
+        headers: {
+          'Content-type': 'application/json'
+        },
+        body: JSON.stringify({
+          id: `${users[userIndex].id}`
+        })
+      }
+    )
 
     console.log(response)
   }
@@ -76,17 +82,20 @@ const PrivateOverview = () => {
    *
    */
   const next = async () => {
-    const response = await fetch(process.env.REACT_APP_ACCOUNT_API + `/user/${id}/friends/decline`, {
-      method: 'PATCH',
-      mode: 'cors',
-      credentials: 'include',
-      headers: {
-        'Content-type': 'application/json'
-      },
-      body: JSON.stringify({
-        id: `${users[userIndex].id}`
-      })
-    })
+    const response = await fetch(
+      process.env.REACT_APP_ACCOUNT_API + `/user/${id}/friends/decline`,
+      {
+        method: 'PATCH',
+        mode: 'cors',
+        credentials: 'include',
+        headers: {
+          'Content-type': 'application/json'
+        },
+        body: JSON.stringify({
+          id: `${users[userIndex].id}`
+        })
+      }
+    )
 
     console.log(response)
   }
