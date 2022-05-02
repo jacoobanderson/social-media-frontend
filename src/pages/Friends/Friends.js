@@ -1,7 +1,7 @@
 import React from 'react'
 import './Friends.css'
-import FriendsList from '../components/FriendsList.js'
-import PrivateNavbar from '../components/PrivateNavbar'
+import FriendsList from '../../components/FriendsList/FriendsList.js'
+import PrivateNavbar from '../../components/Navigation/PrivateNavbar.js'
 
 /**
  *

@@ -1,8 +1,8 @@
 import React, { useContext } from 'react'
 import './Profile.css'
-import PrivateNavbar from '../components/PrivateNavbar.js'
-import ProfileDetailed from '../components/ProfileDetailed.js'
-import { UserContext } from '../hooks/UserContext'
+import PrivateNavbar from '../../components/Navigation/PrivateNavbar.js'
+import ProfileDetailed from '../../components/Profiles/ProfileDetailed.js'
+import { UserContext } from '../../hooks/UserContext'
 
 /**
  * The profile page.

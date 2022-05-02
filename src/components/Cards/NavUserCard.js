@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { UserContext } from '../hooks/UserContext'
+import { UserContext } from '../../hooks/UserContext'
 import './NavUserCard.css'
 
 /**

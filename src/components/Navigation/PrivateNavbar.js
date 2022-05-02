@@ -1,6 +1,6 @@
 import React from 'react'
 import './PrivateNavbar.css'
-import NavUserCard from './NavUserCard.js'
+import NavUserCard from '../Cards/NavUserCard.js'
 import Logout from './Logout.js'
 import { Link, useParams } from 'react-router-dom'
 

@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react'
 import { useParams, Navigate } from 'react-router-dom'
-import { UserContext } from '../hooks/UserContext.js'
-import { UserFeed } from '../hooks/UserFeed.js'
+import { UserContext } from '../../hooks/UserContext.js'
+import { UserFeed } from '../../hooks/UserFeed.js'
 
 /**
  * Acts like a gateway to the private page.

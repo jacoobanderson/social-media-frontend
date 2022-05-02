@@ -1,8 +1,8 @@
 import React, { useContext, useState } from 'react'
 import './PrivateOverview.css'
-import PrivateNavbar from '../components/PrivateNavbar.js'
-import { UserFeed } from '../hooks/UserFeed.js'
-import ProfileSummary from '../components/ProfileSummary'
+import PrivateNavbar from '../../components/Navigation/PrivateNavbar.js'
+import { UserFeed } from '../../hooks/UserFeed.js'
+import ProfileSummary from '../../components/Profiles/ProfileSummary'
 import { Link, useParams } from 'react-router-dom'
 
 /**

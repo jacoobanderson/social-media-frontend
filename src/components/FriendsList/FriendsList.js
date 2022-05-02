@@ -1,7 +1,7 @@
 import './FriendsList.css'
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import FriendCard from './FriendCard'
+import FriendCard from '../Cards/FriendCard'
 
 /**
  *
