@@ -3,7 +3,7 @@ import './PrivateOverview.css'
 import PrivateNavbar from '../components/PrivateNavbar.js'
 import { UserFeed } from '../hooks/UserFeed.js'
 import ProfileSummary from '../components/ProfileSummary'
-import { useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 
 /**
  * Main private page that shows the matchable users.
@@ -12,6 +12,7 @@ const PrivateOverview = () => {
   const { id } = useParams()
   const users = useContext(UserFeed).users
   const [userIndex, setUserIndex] = useState(0)
+  const [match, setMatch] = useState(false)
 
   /**
    * Handles the click on connect button, gets the next user by index.
@@ -25,8 +26,8 @@ const PrivateOverview = () => {
   /**
    * Handles the click on connect button, gets the next user by index.
    */
-  const handleNext = () => {
-    next()
+  const handleNext = async () => {
+    await next()
     setUserIndex(userIndex + 1)
   }
 
@@ -50,10 +51,8 @@ const PrivateOverview = () => {
     )
 
     if (response.status === 204) {
-      console.log('MAAAAATCH')
+      setMatch(true)
     }
-
-    console.log(response)
   }
 
   /**
@@ -103,10 +102,21 @@ const PrivateOverview = () => {
   return (
     <div className='overviewcontainer'>
       <PrivateNavbar />
-      <ProfileSummary user={users[userIndex]} connectState={userIndex} />
-      <div>
-        <button onClick={handleConnect}>Connect</button>
-        <button onClick={handleNext}>Next</button>
+      <div className='feed'>
+        {match
+          ? (
+          <div className='matchPopUp'>
+            <button onClick={() => setMatch(false)}>Close</button>
+            <h2>You just got a new friend!</h2>
+            <Link to={`/${id}/friends`}>Click here to say hello</Link>
+          </div>
+            )
+          : null}
+        <ProfileSummary user={users[userIndex]} connectState={userIndex} />
+        <div>
+          <button onClick={handleConnect}>Connect</button>
+          <button onClick={handleNext}>Next</button>
+        </div>
       </div>
     </div>
   )

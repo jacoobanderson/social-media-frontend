@@ -4,6 +4,9 @@
     color: white;
 }
 
-.animate {
-    transition: transform .8s ease-in-out;
+.feed {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
