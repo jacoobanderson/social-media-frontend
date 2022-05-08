@@ -1,0 +1,9 @@
+.chatContainer {
+    justify-self: center;
+    display: inline-block;
+}
+.chatField {
+    width: 20rem;
+    height: 20rem;
+    background: white;
+}
