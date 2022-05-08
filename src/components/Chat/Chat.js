@@ -24,12 +24,21 @@ const Chat = () => {
     socket.emit('message', { name: user.username, message: event.target.message.value })  
   }
 
+  const chatRender = () => {
+      return display.map(({name, message}, index) => (
+          <div key={index}>
+              {name}
+              {message}
+          </div>
+      ))
+  }
+
   return (
     <div className='chatContainer'>
         <form onSubmit={onSubmit}>
-            asdasda
-            {console.log(display)}
-            <div className='chatField'>asdasdas</div>
+            <div className='chatField'>
+                {chatRender()}
+            </div>
             <div className='chatInput'>
                 <input name='message'></input>
                 <input type='submit' />
