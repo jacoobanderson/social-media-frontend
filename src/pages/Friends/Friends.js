@@ -14,7 +14,7 @@ const Friends = () => {
     <div className='friends'>
       <PrivateNavbar />
       <div className='friendChat'>
-        <FriendsList socket={socket}/>
+        <FriendsList socket={socket} />
         <Chat socket={socket} />
       </div>
     </div>

@@ -5,6 +5,8 @@ import FriendCard from '../Cards/FriendCard'
 
 /**
  *
+ * @param root0
+ * @param root0.socket
  */
 const FriendsList = ({ socket }) => {
   const { id } = useParams()
@@ -32,7 +34,11 @@ const FriendsList = ({ socket }) => {
     setFriends(await response.json())
   }
   return (
-    <div className='friendsContainer'>{friends.map((friend) => <FriendCard socket={socket} key={friend.id} friend={friend} />)} </div>
+    <div className='friendsContainer'>
+      {friends.map((friend) => (
+        <FriendCard socket={socket} key={friend.id} friend={friend} />
+      ))}{' '}
+    </div>
   )
 }
 
