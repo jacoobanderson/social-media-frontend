@@ -6,7 +6,7 @@ import FriendCard from '../Cards/FriendCard'
 /**
  *
  */
-const FriendsList = () => {
+const FriendsList = ({ socket }) => {
   const { id } = useParams()
   const [friends, setFriends] = useState([])
 
@@ -32,7 +32,7 @@ const FriendsList = () => {
     setFriends(await response.json())
   }
   return (
-    <div className='friendsContainer'>{friends.map((friend) => <FriendCard key={friend.id} friend={friend} />)} </div>
+    <div className='friendsContainer'>{friends.map((friend) => <FriendCard socket={socket} key={friend.id} friend={friend} />)} </div>
   )
 }
 

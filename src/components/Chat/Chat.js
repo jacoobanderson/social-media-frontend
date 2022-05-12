@@ -1,11 +1,8 @@
 import React, { useState, useEffect, useContext } from 'react'
-import io from 'socket.io-client'
 import './Chat.css'
 import { UserContext } from '../../hooks/UserContext'
 
-const socket = io.connect(process.env.REACT_APP_BASE_URL)
-
-const Chat = () => {
+const Chat = ({ socket }) => {
   const user = useContext(UserContext).user
     
 
@@ -13,7 +10,12 @@ const Chat = () => {
      socket.on('message', ({ name, message }) => {
          setDisplay([...display, { name, message }])
      })
+
+     socket.on('message', ({ from }) => {
+        console.log(from)
+    })
  })
+
   const [value, setValue] = useState({ name: '', message: '' })
   const [display, setDisplay] = useState([])
 
@@ -21,11 +23,11 @@ const Chat = () => {
     event.preventDefault()
     console.log(event.target.message.value)
     setValue({ ...value, [user.username]: event.target.message.value })
-    socket.emit('message', { name: user.username, message: event.target.message.value })  
+    socket.emit('message', { name: user.username, message: event.target.message.value })
   }
 
   const chatRender = () => {
-      return display.map(({name, message}, index) => (
+      return display.map(({ name, message }, index) => (
           <div key={index}>
               {name}
               {message}
