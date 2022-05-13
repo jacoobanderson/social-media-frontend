@@ -10,8 +10,7 @@ const socket = io.connect(process.env.REACT_APP_BASE_URL)
  *
  */
 const Friends = () => {
-
-  const [ room, setRoom ] = useState('')
+  const [room, setRoom] = useState('')
 
   return (
     <div className='friends'>

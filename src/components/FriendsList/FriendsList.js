@@ -7,6 +7,7 @@ import FriendCard from '../Cards/FriendCard'
  *
  * @param root0
  * @param root0.socket
+ * @param root0.setRoom
  */
 const FriendsList = ({ socket, setRoom }) => {
   const { id } = useParams()

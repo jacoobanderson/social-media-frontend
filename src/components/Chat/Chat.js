@@ -1,18 +1,25 @@
 import React, { useState, useEffect, useContext } from 'react'
 import './Chat.css'
 import { UserContext } from '../../hooks/UserContext'
+import ChatMessage from './ChatMessage'
 
 /**
  *
  * @param root0
  * @param root0.socket
+ * @param root0.room
  */
 const Chat = ({ socket, room }) => {
   const user = useContext(UserContext).user
 
+  /**
+   *
+   */
   const getMessages = async () => {
-    const response = await fetch(process.env.REACT_APP_ACCOUNT_API + '/messages/' + room)
-      setDisplay(await response.json())
+    const response = await fetch(
+      process.env.REACT_APP_ACCOUNT_API + '/messages/' + room
+    )
+    setDisplay(await response.json())
   }
 
   useEffect(() => {
@@ -22,7 +29,6 @@ const Chat = ({ socket, room }) => {
   }, [room])
 
   useEffect(() => {
-    console.log(room)
     socket.on('message', ({ name, message }) => {
       setDisplay([...display, { name, message }])
     })
@@ -46,16 +52,13 @@ const Chat = ({ socket, room }) => {
   }
 
   /**
-   *
+   * Renders the chat 
    */
   const chatRender = () => {
     if (display[0]?.message) {
-    return display.map(({ name, message }, index) => (
-      <div key={index}>
-        {name}
-        {message}
-      </div>
-    ))
+      return display.map(({ name, message }, index) => (
+        <ChatMessage key={index} name={name} message={message} sender={name === user.username} />
+      ))
     }
   }
 
