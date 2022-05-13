@@ -1,5 +1,19 @@
+
+.messageContainer {
+    display: flex;
+    justify-content: flex-end; 
+}
+
+.messageContainerTwo {
+    display: flex;
+    justify-content: flex-start; 
+}
+
 .currentUserMessage {
     background-color: green;
+    width: fit-content;
+    height: fit-content;
+  
 }
 
 .userMessage {

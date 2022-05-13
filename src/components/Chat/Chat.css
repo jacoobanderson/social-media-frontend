@@ -6,6 +6,8 @@
     width: 500px;
     height: 400px;
     background: white;
+    display: flex;
+    flex-direction: column;
 }
 
 .chatInput, .chatInput input {
