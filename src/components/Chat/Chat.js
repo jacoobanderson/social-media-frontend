@@ -12,11 +12,13 @@ const Chat = ({ socket, room }) => {
 
   const getMessages = async () => {
     const response = await fetch(process.env.REACT_APP_ACCOUNT_API + '/messages/' + room)
-    console.log(await response.json())
+      setDisplay(await response.json())
   }
 
   useEffect(() => {
-    getMessages()
+    if (room) {
+      getMessages()
+    }
   }, [room])
 
   useEffect(() => {
@@ -34,6 +36,7 @@ const Chat = ({ socket, room }) => {
    * @param event
    */
   const onSubmit = (event) => {
+    console.log(display)
     event.preventDefault()
     setValue({ ...value, [user.username]: event.target.message.value })
     socket.emit('message', {
@@ -46,12 +49,14 @@ const Chat = ({ socket, room }) => {
    *
    */
   const chatRender = () => {
+    if (display[0]?.message) {
     return display.map(({ name, message }, index) => (
       <div key={index}>
         {name}
         {message}
       </div>
     ))
+    }
   }
 
   return (
