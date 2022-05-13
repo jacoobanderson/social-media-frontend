@@ -7,16 +7,22 @@ import { UserContext } from '../../hooks/UserContext'
  * @param root0
  * @param root0.socket
  */
-const Chat = ({ socket }) => {
+const Chat = ({ socket, room }) => {
   const user = useContext(UserContext).user
 
+  const getMessages = async () => {
+    const response = await fetch(process.env.REACT_APP_ACCOUNT_API + '/messages/' + room)
+    console.log(await response.json())
+  }
+
   useEffect(() => {
+    getMessages()
+  }, [room])
+
+  useEffect(() => {
+    console.log(room)
     socket.on('message', ({ name, message }) => {
       setDisplay([...display, { name, message }])
-    })
-
-    socket.on('message', ({ from }) => {
-      console.log(from)
     })
   })
 
