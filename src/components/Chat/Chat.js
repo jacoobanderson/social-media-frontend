@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react'
+import React, { useState, useEffect, useContext, useRef } from 'react'
 import './Chat.css'
 import { UserContext } from '../../hooks/UserContext'
 import ChatMessage from './ChatMessage'
@@ -11,6 +11,9 @@ import ChatMessage from './ChatMessage'
  */
 const Chat = ({ socket, room }) => {
   const user = useContext(UserContext).user
+  const [value, setValue] = useState({ name: '', message: '' })
+  const [display, setDisplay] = useState([])
+  const chatFieldRef = useRef(null)
 
   /**
    *
@@ -19,7 +22,10 @@ const Chat = ({ socket, room }) => {
     const response = await fetch(
       process.env.REACT_APP_ACCOUNT_API + '/messages/' + room
     )
-    setDisplay(await response.json())
+    const res = await response.json()
+    if (!res.messages) {
+      setDisplay(res)
+    }
   }
 
   useEffect(() => {
@@ -34,15 +40,17 @@ const Chat = ({ socket, room }) => {
     })
   })
 
-  const [value, setValue] = useState({ name: '', message: '' })
-  const [display, setDisplay] = useState([])
+  useEffect(() => {
+    if (chatFieldRef.current) {
+      chatFieldRef.current.scrollTop = chatFieldRef.current.scrollHeight
+    }
+  })
 
   /**
    *
    * @param event
    */
   const onSubmit = (event) => {
-    console.log(display)
     event.preventDefault()
     setValue({ ...value, [user.username]: event.target.message.value })
     socket.emit('message', {
@@ -52,10 +60,10 @@ const Chat = ({ socket, room }) => {
   }
 
   /**
-   * Renders the chat 
+   * Renders the chat
    */
   const chatRender = () => {
-    if (display[0]?.message) {
+    if (display[0]?.name || display[1]?.name) {
       return display.map(({ name, message }, index) => (
         <ChatMessage key={index} name={name} message={message} sender={name === user.username} />
       ))
@@ -65,7 +73,7 @@ const Chat = ({ socket, room }) => {
   return (
     <div className='chatContainer'>
       <form onSubmit={onSubmit}>
-        <div className='chatField'>{chatRender()}</div>
+        <div ref={chatFieldRef} className='chatField'>{chatRender()}</div>
         <div className='chatInput'>
           <input name='message' placeholder='Type your message...'></input>
           <button className='sendButton' type='submit'>

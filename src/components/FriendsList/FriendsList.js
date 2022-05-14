@@ -38,7 +38,7 @@ const FriendsList = ({ socket, setRoom }) => {
     <div className='friendsContainer'>
       {friends.map((friend) => (
         <FriendCard socket={socket} key={friend.id} friend={friend} setRoom={setRoom} />
-      ))}{' '}
+      ))}
     </div>
   )
 }
