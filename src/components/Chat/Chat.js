@@ -23,11 +23,16 @@ const Chat = ({ socket, room }) => {
       process.env.REACT_APP_ACCOUNT_API + '/messages/' + room
     )
     const res = await response.json()
+
+    // sets the display to empty if there isnt any messages and sets it to the messages if there are.
     if (!res.messages) {
       setDisplay(res)
+    } else {
+      setDisplay([])
     }
   }
 
+  // Gets the messages of a new room if a new room is accessed.
   useEffect(() => {
     if (room) {
       getMessages()

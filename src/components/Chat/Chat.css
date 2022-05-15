@@ -33,6 +33,7 @@
     color: rgb(220, 220, 220);
     overflow-y: scroll;
     margin-bottom: 2rem;
+    scroll-behavior: smooth;
 }
 
 .chatField::-webkit-scrollbar {
