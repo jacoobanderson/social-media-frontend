@@ -1,9 +1,25 @@
 .friendsContainer {
     display: flex;
     flex-direction: column;
-    height: 100%;
     width: 25%;
-    overflow: hidden;
+    overflow-y: scroll;
     margin-left: 3rem;
     margin-top: 2rem;
+    margin-bottom: 200px !important;
+}
+
+.friendsContainer::-webkit-scrollbar {
+    width: 0.75rem;
+}
+
+.friendsContainer::-webkit-scrollbar-track {
+    background: rgb(80, 80, 80);
+    border-radius: 10px;
+}
+
+.friendsContainer::-webkit-scrollbar-thumb{
+    background: rgb(30, 30, 30);
+    border-radius: 10px;
+    width: 0.5rem;
+    height: 1rem;
 }
