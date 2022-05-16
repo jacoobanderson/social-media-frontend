@@ -14,6 +14,7 @@ const Chat = ({ socket, room }) => {
   const [value, setValue] = useState({ name: '', message: '' })
   const [display, setDisplay] = useState([])
   const chatFieldRef = useRef(null)
+  const chatInputRef = useRef(null)
 
   /**
    *
@@ -62,6 +63,7 @@ const Chat = ({ socket, room }) => {
       name: user.username,
       message: event.target.message.value
     })
+    chatInputRef.current.value = ''
   }
 
   /**
@@ -80,7 +82,7 @@ const Chat = ({ socket, room }) => {
       <form onSubmit={onSubmit}>
         <div ref={chatFieldRef} className='chatField'>{chatRender()}</div>
         <div className='chatInput'>
-          <input name='message' placeholder='Type your message...'></input>
+          <input ref={chatInputRef} name='message' placeholder='Type your message...'></input>
           <button className='sendButton' type='submit'>
             <svg viewBox="0 0 50 45" className='sendMessageSvg' xmlns="http://www.w3.org/2000/svg" height="28" width="26"><path d="M6 40V8L44 24ZM9 35.35 36.2 24 9 12.5V20.9L21.1 24L9 27ZM9 35.35V24V12.5V20.9V27Z"/></svg>
           </button>
