@@ -13,6 +13,7 @@ const PrivateOverview = () => {
   const users = useContext(UserFeed).users
   const [userIndex, setUserIndex] = useState(0)
   const [match, setMatch] = useState(false)
+  const [animate, setAnimate] = useState(false)
 
   /**
    * Handles the click on connect button, gets the next user by index.
@@ -21,6 +22,7 @@ const PrivateOverview = () => {
     await connect()
     await checkIfMatch()
     setUserIndex(userIndex + 1)
+    setAnimate(true)
   }
 
   /**
@@ -29,6 +31,7 @@ const PrivateOverview = () => {
   const handleNext = async () => {
     await next()
     setUserIndex(userIndex + 1)
+    setAnimate(true)
   }
 
   /**
@@ -102,7 +105,7 @@ const PrivateOverview = () => {
   return (
     <div className='overviewcontainer'>
       <PrivateNavbar />
-      <div className='feed'>
+      <div onAnimationEnd={() => setAnimate(false)} className={animate ? 'feed animate' : 'feed'}>
         {match
           ? (
           <div className='matchPopUp'>
