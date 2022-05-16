@@ -115,9 +115,9 @@ const PrivateOverview = () => {
             )
           : null}
         <ProfileSummary user={users[userIndex]} connectState={userIndex} />
-        <div>
-          <button onClick={handleConnect}>Connect</button>
-          <button onClick={handleNext}>Next</button>
+        <div className='matchButtons'>
+          <button className='matchButtonConnect' onClick={handleConnect}>Connect</button>
+          <button className='matchButtonNext' onClick={handleNext}>Next</button>
         </div>
       </div>
     </div>

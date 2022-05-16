@@ -45,3 +45,40 @@
 .svgPopUp {
     fill: white;
 }
+
+.matchButtons {
+    margin-top: 2rem;
+    width: 20rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.matchButtonConnect {
+    margin-right: 1rem;
+    border: solid 1px green !important;
+}
+
+.matchButtonNext {
+    margin-left: 1rem;
+    border: solid 1px red !important;
+}
+
+.matchButtonConnect:hover {
+    opacity: 0.5;
+}
+
+.matchButtonNext:hover {
+    opacity: 0.5;
+}
+
+.matchButtonNext, .matchButtonConnect {
+    width: 30%;
+    height: 2rem;
+    text-align: center;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    background: black;
+    color: white;
+}
