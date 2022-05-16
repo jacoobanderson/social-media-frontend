@@ -69,3 +69,36 @@
     padding: 1rem;
     width: 90%;
 }
+
+.loader {
+    border: 12px solid rgb(110, 110, 110); /* Light grey */
+    border-top: 12px solid purple; /* Blue */
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    animation: load 2s linear infinite;
+}
+
+.loaderContainer {
+    border: solid 1px purple;
+    padding: 5rem;
+    margin-top: 4rem;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.loaderHeader {
+    margin-bottom: 1rem;
+} 
+
+@keyframes load {
+    0% { 
+        transform: rotate(0deg); 
+    }
+    100% { 
+        transform: rotate(360deg); 
+    }
+}

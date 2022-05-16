@@ -51,7 +51,10 @@ const ProfileSummary = (props) => {
         </div>
           )
         : (
-        <div> sdadsas </div>
+          <div className='loaderContainer'>
+            <div className='loaderHeader' >No more users available at the moment</div>
+            <div className='loader'></div>
+         </div>
           )}
     </div>
   )
