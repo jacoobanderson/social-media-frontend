@@ -9,7 +9,7 @@ import { UserContext } from '../../hooks/UserContext'
  * @param root0.socket
  * @param root0.setRoom
  */
-const FriendCard = ({ friend, socket, setRoom }) => {
+const FriendCard = ({ friend, socket, setRoom, currentCardRef }) => {
   const user = useContext(UserContext).user
   /**
    * Joins a socket room.
@@ -19,9 +19,11 @@ const FriendCard = ({ friend, socket, setRoom }) => {
     const room = [user.id, friend.id].sort((a, b) => (a < b ? -1 : 1))
     setRoom(room[0] + room[1])
     socket.emit('join', [user.id, friend.id])
+    currentCardRef.current = friend.id
+    console.log(currentCardRef)
   }
   return (
-    <button onClick={joinRoom} className='friendCard'>
+    <button onClick={joinRoom} className={currentCardRef.current === friend.id ? 'friendCard currentCardHighlight' : 'friendCard'} >
       <img src={friend.image} className='friendimg' alt='Profile Picture' />
       {friend.firstName + ' ' + friend.lastName}
     </button>

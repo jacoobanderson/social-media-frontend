@@ -28,3 +28,8 @@
 .friendCard img {
     margin-right: 1rem;
 }
+
+.currentCardHighlight {
+    border: 1px solid purple;
+    background: rgba(40, 40, 40);
+}

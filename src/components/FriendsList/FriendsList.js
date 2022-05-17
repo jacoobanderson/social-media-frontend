@@ -1,5 +1,5 @@
 import './FriendsList.css'
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import FriendCard from '../Cards/FriendCard'
 
@@ -12,6 +12,7 @@ import FriendCard from '../Cards/FriendCard'
 const FriendsList = ({ socket, setRoom }) => {
   const { id } = useParams()
   const [friends, setFriends] = useState([])
+  const currentCardRef = useRef(null)
 
   useEffect(() => {
     getFriends()
@@ -37,7 +38,7 @@ const FriendsList = ({ socket, setRoom }) => {
   return (
     <div className='friendsContainer'>
       {friends.map((friend) => (
-        <FriendCard socket={socket} key={friend.id} friend={friend} setRoom={setRoom} />
+        <FriendCard socket={socket} key={friend.id} friend={friend} setRoom={setRoom} currentCardRef={currentCardRef} />
       ))}
     </div>
   )
