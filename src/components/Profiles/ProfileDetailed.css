@@ -36,7 +36,7 @@
     justify-content: center;
 }
 
-.profiledcontainer label, input {
+.profiledcontainer label, .profiledcontainer input {
     display: block;
     color: white;
 }
