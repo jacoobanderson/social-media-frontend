@@ -1,15 +1,16 @@
 import React from 'react'
 import DiscussionForm from '../../components/Forms/DiscussionForm.js'
 import PrivateNavbar from '../../components/Navigation/PrivateNavbar.js'
+import './Discussions.css'
 
 /**
  *
  */
 const Discussions = () => {
   return (
-    <div>
+    <div className='discussionContainer'>
         <PrivateNavbar />
-        <div>
+        <div className='discussionMainContent'>
             <DiscussionForm />
         </div>
     </div>

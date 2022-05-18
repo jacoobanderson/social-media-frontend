@@ -1,0 +1,43 @@
+.discussionFormInput input {
+   width: 35vw;
+   outline: none;
+   border: none;
+   margin: 0;
+   padding: 0;
+   padding: 0.5rem;
+   margin-top: 3rem;
+   border: solid 1px rgb(160, 160, 160);
+   background:rgb(40, 40, 40);
+   color: rgb(210, 210, 210);
+}
+
+.discussionFormText textarea {
+    width: 35vw;
+    height: 13rem;
+    resize: none;
+    outline: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    padding: 0.5rem;
+    margin-top: 0.5rem;
+    border: solid 1px rgb(160, 160, 160);
+    background:rgb(40, 40, 40);
+    color: rgb(210, 210, 210);
+ }
+
+ .discussionFormButton {
+    outline: none;
+    border: none;
+    padding: 0.5rem;
+    border: 1px solid purple;
+    border-radius: 5px;
+    background: black;
+    color: white;
+    margin-top: 1rem;
+    width: 6rem;
+ }
+
+ .discussionFormButton:hover {
+     opacity: 0.5;
+ }

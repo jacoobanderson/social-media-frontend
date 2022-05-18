@@ -1,6 +1,7 @@
 import React, { useContext } from 'react'
 import { useParams } from 'react-router-dom'
 import { UserContext } from '../../hooks/UserContext'
+import './DiscussionForm.css'
 
 const DiscussionForm = () => {
   const user = useContext(UserContext).user
@@ -36,11 +37,11 @@ const DiscussionForm = () => {
     }
   }
   return (
-    <div className='discussionContainer'>
+    <div className='discussionFormContainer'>
         <form onSubmit={handleSubmit} className='discussionForm'>
-            <div><input type='text' name='title' placeholder='Type your title...' /></div>
-            <div><textarea type='text' name='content' placeholder='Explain what you want to discuss...'></textarea></div>
-            <button type='submit'>Publish</button>
+            <div className='discussionFormInput'><input type='text' name='title' placeholder='Type your title...' /></div>
+            <div className='discussionFormText'><textarea type='text' name='content' placeholder='Explain what you want to discuss...'></textarea></div>
+            <button className='discussionFormButton' type='submit'>Publish</button>
         </form>
     </div>
   )
