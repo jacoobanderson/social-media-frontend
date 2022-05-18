@@ -37,9 +37,11 @@ const FriendsList = ({ socket, setRoom }) => {
   }
   return (
     <div className='friendsContainer'>
-      {friends.map((friend) => (
+      {friends.length > 0 ?
+      friends.map((friend) => (
         <FriendCard socket={socket} key={friend.id} friend={friend} setRoom={setRoom} currentCardRef={currentCardRef} />
-      ))}
+      ))
+: <div className='noFriends'>No friends yet..</div>}
     </div>
   )
 }

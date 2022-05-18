@@ -23,3 +23,9 @@
     width: 0.5rem;
     height: 1rem;
 }
+
+.noFriends {
+    margin-top: 2rem;
+    color: white;
+    text-align: center;
+}
