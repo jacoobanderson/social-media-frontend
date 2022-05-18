@@ -14,6 +14,7 @@ const PrivateNavbar = () => {
       <div className='leftprivatenav'>
         <Link to={`/${id}/friends`}>Friends</Link>
         <Link to={`/${id}/find`}>Find</Link>
+        <Link to={`/${id}/discussions`}>Discussions</Link>
       </div>
       <div className='rightprivatenav'>
         <Link to={`/${id}/profile`}>

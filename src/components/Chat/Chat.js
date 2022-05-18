@@ -41,10 +41,8 @@ const Chat = ({ socket, room }) => {
   }, [room])
 
   useEffect(() => {
-    console.log(room)
     socket.on('message', ({ name, message }) => {
       setDisplay([...display, { name, message }])
-      console.log(message)
     })
   })
 
@@ -65,7 +63,6 @@ const Chat = ({ socket, room }) => {
       message: event.target.message.value
     })
     setValue({ ...value, [user.username]: event.target.message.value })
-    console.log(event.target.message.value)
     chatInputRef.current.value = ''
   }
 

@@ -8,6 +8,7 @@ import { UserContext } from '../../hooks/UserContext'
  * @param root0.friend
  * @param root0.socket
  * @param root0.setRoom
+ * @param root0.currentCardRef
  */
 const FriendCard = ({ friend, socket, setRoom, currentCardRef }) => {
   const user = useContext(UserContext).user
@@ -20,7 +21,6 @@ const FriendCard = ({ friend, socket, setRoom, currentCardRef }) => {
     setRoom(room[0] + room[1])
     socket.emit('join', [user.id, friend.id])
     currentCardRef.current = friend.id
-    console.log(currentCardRef)
   }
   return (
     <button onClick={joinRoom} className={currentCardRef.current === friend.id ? 'friendCard currentCardHighlight' : 'friendCard'} >
