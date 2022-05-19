@@ -37,7 +37,7 @@ const DiscussionForm = ({ setDiscussions, discussions }) => {
         }
       )
       const res = await response.json()
-      setDiscussions([{ title: event.target.title.value, content: event.target.content.value, owner: user.username }, ...discussions])
+      setDiscussions([{ title: event.target.title.value, content: event.target.content.value, owner: user.username, _id: res.id }, ...discussions])
       event.target.title.value = ''
       event.target.content.value = ''
       console.log(res)
