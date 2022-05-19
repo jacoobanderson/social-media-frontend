@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import DiscussionThread from '../../components/Discussions/DiscussionThread.js'
 import DiscussionForm from '../../components/Forms/DiscussionForm.js'
 import PrivateNavbar from '../../components/Navigation/PrivateNavbar.js'
 import './Discussions.css'
@@ -31,9 +32,9 @@ const Discussions = () => {
     <div className='discussionContainer'>
         <PrivateNavbar />
         <div className='discussionMainContent'>
-            <DiscussionForm />
+            <DiscussionForm discussions={discussions} setDiscussions={setDiscussions}/>
             <div className='discussionFeed'>
-                {discussions.map((discussion, index) => <div key={index}>{discussion.title}</div>)}
+                {discussions.map((discussion, index) => <DiscussionThread key={index} discussion={discussion}></DiscussionThread>)}
             </div>
         </div>
     </div>

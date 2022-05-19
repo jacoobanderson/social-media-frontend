@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom'
 import { UserContext } from '../../hooks/UserContext'
 import './DiscussionForm.css'
 
-const DiscussionForm = () => {
+const DiscussionForm = ({ setDiscussions, discussions }) => {
   const user = useContext(UserContext).user
   const { id } = useParams()
   /**
@@ -31,6 +31,7 @@ const DiscussionForm = () => {
         }
       )
       const res = await response.json()
+      setDiscussions([{ title: event.target.title.value, content: event.target.content.value, owner: user.username }, ...discussions])
       event.target.title.value = ''
       event.target.content.value = ''
       console.log(res)
