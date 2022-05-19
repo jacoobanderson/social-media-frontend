@@ -3,6 +3,12 @@ import { useParams } from 'react-router-dom'
 import { UserContext } from '../../hooks/UserContext'
 import './DiscussionForm.css'
 
+/**
+ *
+ * @param root0
+ * @param root0.setDiscussions
+ * @param root0.discussions
+ */
 const DiscussionForm = ({ setDiscussions, discussions }) => {
   const user = useContext(UserContext).user
   const { id } = useParams()

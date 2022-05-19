@@ -1,17 +1,66 @@
-import React, { useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
+import { useParams } from 'react-router-dom'
+import { UserContext } from '../../hooks/UserContext'
 import './DiscussionThread.css'
 
+/**
+ *
+ * @param root0
+ * @param root0.discussion
+ */
 const DiscussionThread = ({ discussion }) => {
+  const { id } = useParams()
   const [comments, setComments] = useState(false)
+  const user = useContext(UserContext).user
+
+  const handleCommentSubmit = async (event) => {
+      event.preventDefault()
+      try {
+        const response = await fetch(
+            process.env.REACT_APP_ACCOUNT_API + `/discussions/${id}/comments/create`,
+            {
+              method: 'POST',
+              mode: 'cors',
+              credentials: 'include',
+              headers: {
+                'Content-type': 'application/json'
+              },
+              body: JSON.stringify({
+                content: `${event.target.comment.value}`,
+                owner: user.username,
+                id: discussion._id
+              })
+            }
+          )
+          console.log(response)
+      } catch (error) {
+          console.log(error)
+      }
+  }
   return (
     <div className='discussionThreadContainer'>
-            <h3>{discussion.title}: By {discussion.owner}</h3>
-            <p>{discussion.content}</p>
-            <div className=''><button onClick={() => setComments(!comments)}>Comments</button>: ({discussion.replies ? discussion.replies.length : 0})</div>
-        {comments ? <div>{discussion.replies?.map((replies, index) => <div key={index}>test</div>)}<div><input type='text'></input></div></div> : null}
+      <h3>
+        {discussion.title}: By {discussion.owner}
+      </h3>
+      <p>{discussion.content}</p>
+      <div className=''>
+        <button onClick={() => setComments(!comments)}>Show comments</button>: (
+        {discussion.replies ? discussion.replies.length : 0})
+      </div>
+      {comments
+        ? (
         <div>
-
+          {discussion.replies?.map((replies, index) => (
+            <div key={index}>{replies.owner} {replies.content}</div>
+          ))}
+          <form onSubmit={handleCommentSubmit}>
+            <input name='comment' type='text'></input>
+            <button type='submit'>Comment</button>
+          </form>
         </div>
+          )
+        : null}
+      <div></div>
     </div>
   )
 }
