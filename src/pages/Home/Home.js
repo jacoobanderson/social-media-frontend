@@ -14,8 +14,8 @@ const Home = () => {
       <Navbar />
       <div className='maincontent'>
         <div className='firstsection'>
-          <h1>Find other students like you!</h1>
-          <h4>
+          <h1 data-testid='homeTitle'>Find other students like you!</h1>
+          <h4 data-testid='homeDescription'>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Rhoncus
             aenean vel elit scelerisque mauris pellentesque pulvinar

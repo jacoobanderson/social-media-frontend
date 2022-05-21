@@ -15,11 +15,11 @@ const DiscussionThread = ({ discussion }) => {
   const user = useContext(UserContext).user
 
   useEffect(() => {
-      setDisplay(discussion.replies)
+    setDisplay(discussion.replies)
   }, [])
 
   useEffect(() => {
-      console.log(display)
+    console.log(display)
   }, [display])
 
   /**
@@ -68,7 +68,7 @@ const DiscussionThread = ({ discussion }) => {
         <div>
                       {display?.map((replies, index) => (
             <div key={index}>{replies.owner} {replies.content}</div>
-          ))}
+                      ))}
           <form onSubmit={handleCommentSubmit}>
             <input name='comment' type='text'></input>
             <button type='submit'>Comment</button>
