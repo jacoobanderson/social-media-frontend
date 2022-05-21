@@ -23,8 +23,8 @@ const FriendCard = ({ friend, socket, setRoom, currentCardRef }) => {
     currentCardRef.current = friend.id
   }
   return (
-    <button onClick={joinRoom} className={currentCardRef.current === friend.id ? 'friendCard currentCardHighlight' : 'friendCard'} >
-      <img src={friend.image} className='friendimg' alt='Profile Picture' />
+    <button data-testid='friendCard' onClick={joinRoom} className={currentCardRef.current === friend.id ? 'friendCard currentCardHighlight' : 'friendCard'} >
+      <img data-testid='friendImage' src={friend.image} className='friendimg' alt='Profile Picture' />
       {friend.firstName + ' ' + friend.lastName}
     </button>
   )

@@ -36,7 +36,7 @@ const FriendsList = ({ socket, setRoom }) => {
     setFriends(await response.json())
   }
   return (
-    <div className='friendsContainer'>
+    <div className='friendsContainer' data-testid='friendsListTest'>
       {friends.length > 0
         ? friends.map((friend) => (
         <FriendCard socket={socket} key={friend.id} friend={friend} setRoom={setRoom} currentCardRef={currentCardRef} />
