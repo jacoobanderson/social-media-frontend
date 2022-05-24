@@ -16,11 +16,7 @@ const Home = () => {
         <div className='firstsection'>
           <h1 data-testid='homeTitle'>Find other students like you!</h1>
           <h4 data-testid='homeDescription'>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Rhoncus
-            aenean vel elit scelerisque mauris pellentesque pulvinar
-            pellentesque. Elit ullamcorper dignissim cras tincidunt lobortis
-            feugiat vivamus at augue.
+            A place to find likeminded people with the right tools to explore and learn together, discuss and chat with the people you meet and use the opportunity to help eachother and become great!
           </h4>
           <Link to='/register'>Join now</Link>
         </div>
