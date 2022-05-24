@@ -11,6 +11,7 @@ import { UserFeed } from './hooks/UserFeed'
 import React, { useState } from 'react'
 import Friends from './pages/Friends/Friends'
 import Discussions from './pages/Discussions/Discussions'
+import Explore from './pages/Explore/Explore'
 /**
  * The app.
  *
@@ -27,6 +28,7 @@ function App () {
             <Route path='/' element={<Home />} />
             <Route path='/login' element={<Login />} />
             <Route path='/register' element={<Register />} />
+            <Route path='/explore' element={<Explore />} />
             <Route
               path='/:id/find'
               element={
