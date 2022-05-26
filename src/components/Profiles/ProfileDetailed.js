@@ -10,7 +10,7 @@ import './ProfileDetailed.css'
 const ProfileDetailed = (props) => {
   const [readOnly, setReadOnly] = useState(true)
   const [image, setImage] = useState(props.user.image)
-  const [user, setUser] = useContext(UserContext).user
+  const { user, setUser } = useContext(UserContext)
   const { id } = useParams()
 
   /**
@@ -62,8 +62,9 @@ const ProfileDetailed = (props) => {
     }
 
     setImage(imageUrl)
-    user.image = imageUrl
-    console.log(user.image)
+    const tempUser = { ...user }
+    tempUser.image = imageUrl
+    setUser(tempUser)
 
     const firstname = event.target.fullname.value.split(' ')[0]
     const lastname = event.target.fullname.value.split(' ')[1]
