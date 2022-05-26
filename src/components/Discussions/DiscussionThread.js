@@ -30,7 +30,8 @@ const DiscussionThread = ({ discussion }) => {
     event.preventDefault()
     try {
       const response = await fetch(
-        process.env.REACT_APP_ACCOUNT_API + `/discussions/${id}/comments/create`,
+        process.env.REACT_APP_ACCOUNT_API +
+          `/discussions/${id}/comments/create`,
         {
           method: 'PATCH',
           mode: 'cors',
@@ -46,7 +47,10 @@ const DiscussionThread = ({ discussion }) => {
         }
       )
       console.log(response)
-      setDisplay([...display, { owner: user.username, content: event.target.comment.value }])
+      setDisplay([
+        ...display,
+        { owner: user.username, content: event.target.comment.value }
+      ])
       event.target.comment.value = ''
     } catch (error) {
       console.log(error)
@@ -66,9 +70,11 @@ const DiscussionThread = ({ discussion }) => {
       {comments
         ? (
         <div>
-                      {display?.map((replies, index) => (
-            <div key={index}>{replies.owner} {replies.content}</div>
-                      ))}
+          {display?.map((replies, index) => (
+            <div key={index}>
+              {replies.owner} {replies.content}
+            </div>
+          ))}
           <form onSubmit={handleCommentSubmit}>
             <input name='comment' type='text'></input>
             <button type='submit'>Comment</button>
