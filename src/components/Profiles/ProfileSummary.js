@@ -46,7 +46,7 @@ const ProfileSummary = (props) => {
             </>
               )
             : (
-            <ProfileDetailed user={props.user} />
+            <ProfileDetailed user={props.user} setSummary={setSummary} />
               )}
         </div>
           )

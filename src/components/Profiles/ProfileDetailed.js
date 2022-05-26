@@ -109,6 +109,7 @@ const ProfileDetailed = (props) => {
   }
   return (
     <div className='profiledcontainer'>
+      {props.user.id === id ? null : <button onClick={() => props.setSummary(true)}>Show summary</button> }
       <form onSubmit={handleSave}>
         <div className='profiledetailed'>
           <div className='detailedleft'>
@@ -221,6 +222,7 @@ const ProfileDetailed = (props) => {
                   readOnly={readOnly}
                 />
               </div>
+
             </div>
           </div>
         </div>
