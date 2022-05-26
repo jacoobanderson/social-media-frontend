@@ -1,7 +1,7 @@
-import React, { useContext, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import './PrivateOverview.css'
 import PrivateNavbar from '../../components/Navigation/PrivateNavbar.js'
-import { UserFeed } from '../../hooks/UserFeed.js'
+// import { UserFeed } from '../../hooks/UserFeed.js'
 import ProfileSummary from '../../components/Profiles/ProfileSummary'
 import { Link, useParams } from 'react-router-dom'
 
@@ -10,10 +10,30 @@ import { Link, useParams } from 'react-router-dom'
  */
 const PrivateOverview = () => {
   const { id } = useParams()
-  const users = useContext(UserFeed).users
+  // const users = useContext(UserFeed).users
+  const [users, setUsers] = useState('')
   const [userIndex, setUserIndex] = useState(0)
   const [match, setMatch] = useState(false)
   const [animate, setAnimate] = useState(false)
+
+  useEffect(() => {
+    getUsers()
+  }, [])
+
+    /**
+   * Gets all the users that the current user can be match with.
+   */
+     const getUsers = async () => {
+      const response = await fetch(
+        process.env.REACT_APP_ACCOUNT_API + `/user/${id}/all`,
+        {
+          method: 'GET',
+          mode: 'cors',
+          credentials: 'include'
+        }
+      )
+      setUsers(await response.json())
+    }
 
   /**
    * Handles the click on connect button, gets the next user by index.

@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react'
 import { useParams, Navigate } from 'react-router-dom'
 import { UserContext } from '../../hooks/UserContext.js'
-import { UserFeed } from '../../hooks/UserFeed.js'
+// import { UserFeed } from '../../hooks/UserFeed.js'
 
 /**
  * Acts like a gateway to the private page.
@@ -14,7 +14,7 @@ const PrivateRoute = ({ children }) => {
   const [isAuth, setIsAuth] = useState()
   const { id } = useParams()
   const { setUser } = useContext(UserContext)
-  const { setUsers } = useContext(UserFeed)
+  // const { setUsers } = useContext(UserFeed)
 
   useEffect(() => {
     /**
@@ -25,24 +25,24 @@ const PrivateRoute = ({ children }) => {
       setIsAuth(auth)
     }
 
-    getUsers()
+    // getUsers()
     checkAuth()
   }, [])
 
-  /**
-   * Gets all the users that the current user can be match with.
-   */
-  const getUsers = async () => {
-    const response = await fetch(
-      process.env.REACT_APP_ACCOUNT_API + `/user/${id}/all`,
-      {
-        method: 'GET',
-        mode: 'cors',
-        credentials: 'include'
-      }
-    )
-    setUsers(await response.json())
-  }
+  // /**
+  //  * Gets all the users that the current user can be match with.
+  //  */
+  // const getUsers = async () => {
+  //   const response = await fetch(
+  //     process.env.REACT_APP_ACCOUNT_API + `/user/${id}/all`,
+  //     {
+  //       method: 'GET',
+  //       mode: 'cors',
+  //       credentials: 'include'
+  //     }
+  //   )
+  //   setUsers(await response.json())
+  // }
 
   /**
    * Verifies the user JWT and sets the user info.

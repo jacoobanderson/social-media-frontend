@@ -1,5 +1,6 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { useParams } from 'react-router-dom'
+import { UserContext } from '../../hooks/UserContext'
 import './ProfileDetailed.css'
 
 /**
@@ -9,6 +10,7 @@ import './ProfileDetailed.css'
 const ProfileDetailed = (props) => {
   const [readOnly, setReadOnly] = useState(true)
   const [image, setImage] = useState(props.user.image)
+  const [user, setUser] = useContext(UserContext).user
   const { id } = useParams()
 
   /**
@@ -60,6 +62,8 @@ const ProfileDetailed = (props) => {
     }
 
     setImage(imageUrl)
+    user.image = imageUrl
+    console.log(user.image)
 
     const firstname = event.target.fullname.value.split(' ')[0]
     const lastname = event.target.fullname.value.split(' ')[1]

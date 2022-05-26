@@ -7,7 +7,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import PrivateRoute from './pages/Private/PrivateRoute.js'
 import PrivateOverview from './pages/Private/PrivateOverview.js'
 import { UserContext } from './hooks/UserContext.js'
-import { UserFeed } from './hooks/UserFeed'
+// import { UserFeed } from './hooks/UserFeed'
 import React, { useState } from 'react'
 import Friends from './pages/Friends/Friends'
 import Discussions from './pages/Discussions/Discussions'
@@ -20,11 +20,11 @@ import NotFound from './pages/Error/NotFound'
  */
 function App () {
   const [user, setUser] = useState({})
-  const [users, setUsers] = useState([])
+  // const [users, setUsers] = useState([])
   return (
     <BrowserRouter>
       <UserContext.Provider value={{ user, setUser }}>
-        <UserFeed.Provider value={{ users, setUsers }}>
+        {/* <UserFeed.Provider value={{ users, setUsers }}> */}
           <Routes>
             <Route path='/' element={<Home />} />
             <Route path='/login' element={<Login />} />
@@ -64,7 +64,7 @@ function App () {
               }
             />
           </Routes>
-        </UserFeed.Provider>
+        {/* </UserFeed.Provider> */}
       </UserContext.Provider>
     </BrowserRouter>
   )
