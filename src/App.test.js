@@ -81,7 +81,7 @@ describe('Friend card', () => {
 })
 
 describe('Friends List', () => {
-  const mockFriends = [{id: 123, firstName: 'test', lastName: 'testsson'}]
+  const mockFriends = [{ id: 123, firstName: 'test', lastName: 'testsson' }]
   it('Should render the amount of friends', () => {
     render(
         <FriendsList friends={mockFriends} />

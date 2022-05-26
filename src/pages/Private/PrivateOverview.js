@@ -20,20 +20,20 @@ const PrivateOverview = () => {
     getUsers()
   }, [])
 
-    /**
+  /**
    * Gets all the users that the current user can be match with.
    */
-     const getUsers = async () => {
-      const response = await fetch(
-        process.env.REACT_APP_ACCOUNT_API + `/user/${id}/all`,
-        {
-          method: 'GET',
-          mode: 'cors',
-          credentials: 'include'
-        }
-      )
-      setUsers(await response.json())
-    }
+  const getUsers = async () => {
+    const response = await fetch(
+      process.env.REACT_APP_ACCOUNT_API + `/user/${id}/all`,
+      {
+        method: 'GET',
+        mode: 'cors',
+        credentials: 'include'
+      }
+    )
+    setUsers(await response.json())
+  }
 
   /**
    * Handles the click on connect button, gets the next user by index.
@@ -125,12 +125,24 @@ const PrivateOverview = () => {
   return (
     <div className='overviewcontainer'>
       <PrivateNavbar />
-      <div onAnimationEnd={() => setAnimate(false)} className={animate ? 'feed animate' : 'feed'}>
+      <div
+        onAnimationEnd={() => setAnimate(false)}
+        className={animate ? 'feed animate' : 'feed'}
+      >
         {match
           ? (
           <div className='matchPopUp'>
             <div>
-            <button onClick={() => setMatch(false)}><svg className='svgPopUp' xmlns="http://www.w3.org/2000/svg" height="48" width="48"><path d="M12.45 37.65 10.35 35.55 21.9 24 10.35 12.45 12.45 10.35 24 21.9 35.55 10.35 37.65 12.45 26.1 24 37.65 35.55 35.55 37.65 24 26.1Z"/></svg></button>
+              <button onClick={() => setMatch(false)}>
+                <svg
+                  className='svgPopUp'
+                  xmlns='http://www.w3.org/2000/svg'
+                  height='48'
+                  width='48'
+                >
+                  <path d='M12.45 37.65 10.35 35.55 21.9 24 10.35 12.45 12.45 10.35 24 21.9 35.55 10.35 37.65 12.45 26.1 24 37.65 35.55 35.55 37.65 24 26.1Z' />
+                </svg>
+              </button>
             </div>
             <h2>You just got a new friend!</h2>
             <Link to={`/${id}/friends`}>Click here to say hello</Link>
@@ -138,10 +150,18 @@ const PrivateOverview = () => {
             )
           : null}
         <ProfileSummary user={users[userIndex]} connectState={userIndex} />
-        <div className='matchButtons'>
-          <button className='matchButtonConnect' onClick={handleConnect}>Connect</button>
-          <button className='matchButtonNext' onClick={handleNext}>Next</button>
-        </div>
+        {userIndex > users.length - 1
+          ? null
+          : (
+          <div className='matchButtons'>
+            <button className='matchButtonConnect' onClick={handleConnect}>
+              Connect
+            </button>
+            <button className='matchButtonNext' onClick={handleNext}>
+              Next
+            </button>
+          </div>
+            )}
       </div>
     </div>
   )
