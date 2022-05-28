@@ -13,8 +13,8 @@ const Profile = () => {
   const user = useContext(UserContext).user
   return (
     <div className='profilecontainer'>
-        <PrivateNavbar />
-        <ProfileDetailed user={user}/>
+      <PrivateNavbar />
+      <ProfileDetailed user={user} />
     </div>
   )
 }

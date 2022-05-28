@@ -3,8 +3,10 @@ import ProfileDetailed from './ProfileDetailed'
 import './ProfileSummary.css'
 
 /**
+ * The summary version of the profile.
  *
- * @param props
+ * @param {object} props The props.
+ * @returns {React.ReactElement} The summarized profile.
  */
 const ProfileSummary = (props) => {
   const [summary, setSummary] = useState(true)
@@ -51,10 +53,12 @@ const ProfileSummary = (props) => {
         </div>
           )
         : (
-          <div className='loaderContainer'>
-            <div className='loaderHeader' >No more users available at the moment</div>
-            <div className='loader'></div>
-         </div>
+        <div className='loaderContainer'>
+          <div className='loaderHeader'>
+            No more users available at the moment
+          </div>
+          <div className='loader'></div>
+        </div>
           )}
     </div>
   )

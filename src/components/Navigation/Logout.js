@@ -9,8 +9,9 @@ import { useNavigate } from 'react-router-dom'
  */
 const Logout = () => {
   const navigate = useNavigate()
+
   /**
-   *
+   * Handles the logout submit.
    */
   const handleSubmit = async () => {
     await fetch(process.env.REACT_APP_ACCOUNT_API + '/logout', {

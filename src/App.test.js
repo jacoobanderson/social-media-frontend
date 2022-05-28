@@ -1,9 +1,7 @@
 import { render, screen } from '@testing-library/react'
 import React from 'react'
-import { BrowserRouter, Link, MemoryRouter } from 'react-router-dom'
-import FriendsList from './components/FriendsList/FriendsList'
+import { BrowserRouter } from 'react-router-dom'
 import Home from './pages/Home/Home'
-import { createMemoryHistory } from 'history'
 import FriendCard from './components/Cards/FriendCard'
 
 describe('Homepage', () => {
@@ -80,13 +78,11 @@ describe('Friend card', () => {
   })
 })
 
-describe('Friends List', () => {
-  const mockFriends = [{ id: 123, firstName: 'test', lastName: 'testsson' }]
-  it('Should render the amount of friends', () => {
-    render(
-        <FriendsList friends={mockFriends} />
-    )
-    const friendsList = screen.getByTestId('friendsListTest')
-    expect()
-  })
-})
+// describe('Friends List', () => {
+//   const mockFriends = [{ id: 123, firstName: 'test', lastName: 'testsson' }]
+//   it('Should render the amount of friends', () => {
+//     render(<FriendsList friends={mockFriends} />)
+//     const friendsList = screen.getByTestId('friendsListTest')
+//     expect()
+//   })
+// })

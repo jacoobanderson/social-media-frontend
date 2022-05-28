@@ -26,46 +26,46 @@ function App () {
     <BrowserRouter>
       <UserContext.Provider value={{ user, setUser }}>
         {/* <UserFeed.Provider value={{ users, setUsers }}> */}
-          <Routes>
-            <Route path='/' element={<Home />} />
-            <Route path='/login' element={<Login />} />
-            <Route path='/register' element={<Register />} />
-            <Route path='/explore' element={<Explore />} />
-            <Route path='/about' element={<About />} />
-            <Route path='*' element={<NotFound />} />
-            <Route
-              path='/:id/find'
-              element={
-                <PrivateRoute>
-                  <PrivateOverview />
-                </PrivateRoute>
-              }
-            />
-            <Route
-              path='/:id/profile'
-              element={
-                <PrivateRoute>
-                  <Profile />
-                </PrivateRoute>
-              }
-            />
-            <Route
-              path='/:id/friends'
-              element={
-                <PrivateRoute>
-                  <Friends />
-                </PrivateRoute>
-              }
-            />
-            <Route
-              path='/:id/discussions'
-              element={
-                <PrivateRoute>
-                  <Discussions />
-                </PrivateRoute>
-              }
-            />
-          </Routes>
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='/login' element={<Login />} />
+          <Route path='/register' element={<Register />} />
+          <Route path='/explore' element={<Explore />} />
+          <Route path='/about' element={<About />} />
+          <Route path='*' element={<NotFound />} />
+          <Route
+            path='/:id/find'
+            element={
+              <PrivateRoute>
+                <PrivateOverview />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path='/:id/profile'
+            element={
+              <PrivateRoute>
+                <Profile />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path='/:id/friends'
+            element={
+              <PrivateRoute>
+                <Friends />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path='/:id/discussions'
+            element={
+              <PrivateRoute>
+                <Discussions />
+              </PrivateRoute>
+            }
+          />
+        </Routes>
         {/* </UserFeed.Provider> */}
       </UserContext.Provider>
     </BrowserRouter>

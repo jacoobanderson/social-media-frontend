@@ -4,11 +4,12 @@ import { UserContext } from '../../hooks/UserContext'
 
 /**
  *
- * @param root0
- * @param root0.friend
- * @param root0.socket
- * @param root0.setRoom
- * @param root0.currentCardRef
+ * @param {object} root0 The props.
+ * @param {object} root0.friend The information about the friend.
+ * @param {object} root0.socket The socket for the chat.
+ * @param {React.SetStateAction} root0.setRoom Sets the current chat room.
+ * @param {object} root0.currentCardRef The reference to the current card in the friendsList.
+ * @returns {React.ReactElement} Friend card.
  */
 const FriendCard = ({ friend, socket, setRoom, currentCardRef }) => {
   const user = useContext(UserContext).user
@@ -23,8 +24,21 @@ const FriendCard = ({ friend, socket, setRoom, currentCardRef }) => {
     currentCardRef.current = friend.id
   }
   return (
-    <button data-testid='friendCard' onClick={joinRoom} className={currentCardRef.current === friend.id ? 'friendCard currentCardHighlight' : 'friendCard'} >
-      <img data-testid='friendImage' src={friend.image} className='friendimg' alt='Profile Picture' />
+    <button
+      data-testid='friendCard'
+      onClick={joinRoom}
+      className={
+        currentCardRef.current === friend.id
+          ? 'friendCard currentCardHighlight'
+          : 'friendCard'
+      }
+    >
+      <img
+        data-testid='friendImage'
+        src={friend.image}
+        className='friendimg'
+        alt='Profile Picture'
+      />
       {friend.firstName + ' ' + friend.lastName}
     </button>
   )

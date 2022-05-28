@@ -4,9 +4,11 @@ import { UserContext } from '../../hooks/UserContext'
 import './DiscussionThread.css'
 
 /**
+ * The discussion thread component.
  *
- * @param root0
- * @param root0.discussion
+ * @param {object} root0 props.
+ * @param {object} root0.discussion The discussion object.
+ * @returns {React.ReactElement} The thread.
  */
 const DiscussionThread = ({ discussion }) => {
   const { id } = useParams()
@@ -23,8 +25,9 @@ const DiscussionThread = ({ discussion }) => {
   }, [display])
 
   /**
+   * Handles the comment functionality.
    *
-   * @param event
+   * @param {object} event The event.
    */
   const handleCommentSubmit = async (event) => {
     event.preventDefault()

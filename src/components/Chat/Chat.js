@@ -4,10 +4,12 @@ import { UserContext } from '../../hooks/UserContext'
 import ChatMessage from './ChatMessage'
 
 /**
+ * Handles the chat functionality.
  *
- * @param root0
- * @param root0.socket
- * @param root0.room
+ * @param {object} root0 The props.
+ * @param {object} root0.socket The socket of the chat.
+ * @param {string} root0.room The socket room string.
+ * @returns {React.ReactElement} The chat.
  */
 const Chat = ({ socket, room }) => {
   const user = useContext(UserContext).user
@@ -17,7 +19,7 @@ const Chat = ({ socket, room }) => {
   const chatInputRef = useRef(null)
 
   /**
-   *
+   * Gets all the previous messages and sets them in the display.
    */
   const getMessages = async () => {
     const response = await fetch(
@@ -53,8 +55,9 @@ const Chat = ({ socket, room }) => {
   })
 
   /**
+   * Sends the message.
    *
-   * @param event
+   * @param {object} event The event.
    */
   const onSubmit = (event) => {
     event.preventDefault()
@@ -67,12 +70,19 @@ const Chat = ({ socket, room }) => {
   }
 
   /**
-   * Renders the chat
+   * Renders the chat.
+   *
+   * @returns {React.ReactElement} The ChatMessage component.
    */
   const chatRender = () => {
     if (display[0]?.name || display[1]?.name) {
       return display.map(({ name, message }, index) => (
-        <ChatMessage key={index} name={name} message={message} sender={name === user.username} />
+        <ChatMessage
+          key={index}
+          name={name}
+          message={message}
+          sender={name === user.username}
+        />
       ))
     }
   }
@@ -80,11 +90,25 @@ const Chat = ({ socket, room }) => {
   return (
     <div className='chatContainer'>
       <form onSubmit={onSubmit}>
-        <div ref={chatFieldRef} className='chatField'>{chatRender()}</div>
+        <div ref={chatFieldRef} className='chatField'>
+          {chatRender()}
+        </div>
         <div className='chatInput'>
-          <input ref={chatInputRef} name='message' placeholder='Type your message...'></input>
+          <input
+            ref={chatInputRef}
+            name='message'
+            placeholder='Type your message...'
+          ></input>
           <button className='sendButton' type='submit'>
-            <svg viewBox="0 0 50 45" className='sendMessageSvg' xmlns="http://www.w3.org/2000/svg" height="28" width="26"><path d="M6 40V8L44 24ZM9 35.35 36.2 24 9 12.5V20.9L21.1 24L9 27ZM9 35.35V24V12.5V20.9V27Z"/></svg>
+            <svg
+              viewBox='0 0 50 45'
+              className='sendMessageSvg'
+              xmlns='http://www.w3.org/2000/svg'
+              height='28'
+              width='26'
+            >
+              <path d='M6 40V8L44 24ZM9 35.35 36.2 24 9 12.5V20.9L21.1 24L9 27ZM9 35.35V24V12.5V20.9V27Z' />
+            </svg>
           </button>
         </div>
       </form>

@@ -5,7 +5,9 @@ import Logout from './Logout.js'
 import { Link, useParams } from 'react-router-dom'
 
 /**
+ * The navigation bar when logged in.
  *
+ * @returns {React.ReactElement} The private navbar.
  */
 const PrivateNavbar = () => {
   const { id } = useParams()

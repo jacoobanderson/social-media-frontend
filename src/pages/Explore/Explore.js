@@ -4,7 +4,9 @@ import Navbar from '../../components/Navigation/Navbar'
 import './Explore.css'
 
 /**
+ * The explore page.
  *
+ * @returns {React.ReactElement} The explore element.
  */
 const Explore = () => {
   const [discussions, setDiscussions] = useState([])
@@ -14,8 +16,6 @@ const Explore = () => {
   }, [])
   /**
    * Gets all discussions.
-   *
-   * @param {object} event The data of the event.
    */
   const getDiscussionsWithoutComments = async () => {
     try {
@@ -33,8 +33,13 @@ const Explore = () => {
       <Navbar />
       <div className='exploreHeader'>
         <h1>Our community discussions</h1>
-        <p>Sign in to be able to comment the discussions aswell as start on of your own.</p>
-        <div className='exploreLink'><Link to='/login'>Sign in to start a discussion!</Link></div>
+        <p>
+          Sign in to be able to comment the discussions aswell as start on of
+          your own.
+        </p>
+        <div className='exploreLink'>
+          <Link to='/login'>Sign in to start a discussion!</Link>
+        </div>
       </div>
       <div className='exploreGrid'>
         {discussions.map((discussion, index) => (

@@ -4,8 +4,10 @@ import { UserContext } from '../../hooks/UserContext'
 import './ProfileDetailed.css'
 
 /**
+ * The detailed version of the profile.
  *
- * @param props
+ * @param {object} props Contains all the props.
+ * @returns {React.ReactElement} The detailed profile.
  */
 const ProfileDetailed = (props) => {
   const [readOnly, setReadOnly] = useState(true)
@@ -16,8 +18,8 @@ const ProfileDetailed = (props) => {
   /**
    * Converts a file to base64.
    *
-   * @param {object} event The event.
-   * @param file
+   * @param {object} file The uploaded file.
+   * @returns {Promise} The converted file.
    */
   const getBase64 = async (file) => {
     const reader = new FileReader()
@@ -109,7 +111,11 @@ const ProfileDetailed = (props) => {
   }
   return (
     <div className='profiledcontainer'>
-      {props.user.id === id ? null : <button onClick={() => props.setSummary(true)}>Show summary</button> }
+      {props.user.id === id
+        ? null
+        : (
+        <button onClick={() => props.setSummary(true)}>Show summary</button>
+          )}
       <form onSubmit={handleSave}>
         <div className='profiledetailed'>
           <div className='detailedleft'>
@@ -222,7 +228,6 @@ const ProfileDetailed = (props) => {
                   readOnly={readOnly}
                 />
               </div>
-
             </div>
           </div>
         </div>

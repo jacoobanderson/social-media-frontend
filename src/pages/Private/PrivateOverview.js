@@ -7,6 +7,8 @@ import { Link, useParams } from 'react-router-dom'
 
 /**
  * Main private page that shows the matchable users.
+ *
+ * @returns {React.ReactElement} The private overview element.
  */
 const PrivateOverview = () => {
   const { id } = useParams()

@@ -7,7 +7,9 @@ import io from 'socket.io-client'
 
 const socket = io.connect(process.env.REACT_APP_BASE_URL)
 /**
+ * The Friends page.
  *
+ * @returns {React.ReactElement} The friends element.
  */
 const Friends = () => {
   const [room, setRoom] = useState('')
@@ -16,7 +18,7 @@ const Friends = () => {
     <div className='friends'>
       <PrivateNavbar />
       <div className='friendChat'>
-        <FriendsList socket={socket} setRoom={setRoom}/>
+        <FriendsList socket={socket} setRoom={setRoom} />
         <Chat socket={socket} room={room} />
       </div>
     </div>

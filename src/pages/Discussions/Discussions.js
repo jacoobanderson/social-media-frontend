@@ -5,7 +5,9 @@ import PrivateNavbar from '../../components/Navigation/PrivateNavbar.js'
 import './Discussions.css'
 
 /**
+ * The discussion page.
  *
+ * @returns {React.ReactElement} The discussions element.
  */
 const Discussions = () => {
   const [discussions, setDiscussions] = useState([])
@@ -15,12 +17,12 @@ const Discussions = () => {
   }, [])
   /**
    * Gets all discussions.
-   *
-   * @param {object} event The data of the event.
    */
   const getDiscussions = async () => {
     try {
-      const response = await fetch(process.env.REACT_APP_ACCOUNT_API + '/discussions/all')
+      const response = await fetch(
+        process.env.REACT_APP_ACCOUNT_API + '/discussions/all'
+      )
       const res = await response.json()
       res.reverse()
       setDiscussions(res)
@@ -30,13 +32,21 @@ const Discussions = () => {
   }
   return (
     <div className='discussionContainer'>
-        <PrivateNavbar />
-        <div className='discussionMainContent'>
-            <DiscussionForm discussions={discussions} setDiscussions={setDiscussions}/>
-            <div className='discussionFeed'>
-                {discussions.map((discussion, index) => <DiscussionThread key={index} discussion={discussion}></DiscussionThread>)}
-            </div>
+      <PrivateNavbar />
+      <div className='discussionMainContent'>
+        <DiscussionForm
+          discussions={discussions}
+          setDiscussions={setDiscussions}
+        />
+        <div className='discussionFeed'>
+          {discussions.map((discussion, index) => (
+            <DiscussionThread
+              key={index}
+              discussion={discussion}
+            ></DiscussionThread>
+          ))}
         </div>
+      </div>
     </div>
   )
 }

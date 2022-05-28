@@ -4,10 +4,12 @@ import { UserContext } from '../../hooks/UserContext'
 import './DiscussionForm.css'
 
 /**
+ * The discussion form.
  *
- * @param root0
- * @param root0.setDiscussions
- * @param root0.discussions
+ * @param {object} root0 props.
+ * @param {React.SetStateAction} root0.setDiscussions sets the discussions to the display.
+ * @param {object} root0.discussions The discussion object.
+ * @returns {React.ReactElement} The discussion form.
  */
 const DiscussionForm = ({ setDiscussions, discussions }) => {
   const user = useContext(UserContext).user
@@ -37,7 +39,15 @@ const DiscussionForm = ({ setDiscussions, discussions }) => {
         }
       )
       const res = await response.json()
-      setDiscussions([{ title: event.target.title.value, content: event.target.content.value, owner: user.username, _id: res.id }, ...discussions])
+      setDiscussions([
+        {
+          title: event.target.title.value,
+          content: event.target.content.value,
+          owner: user.username,
+          _id: res.id
+        },
+        ...discussions
+      ])
       event.target.title.value = ''
       event.target.content.value = ''
       console.log(res)
@@ -47,11 +57,21 @@ const DiscussionForm = ({ setDiscussions, discussions }) => {
   }
   return (
     <div className='discussionFormContainer'>
-        <form onSubmit={handleSubmit} className='discussionForm'>
-            <div className='discussionFormInput'><input type='text' name='title' placeholder='Type your title...' /></div>
-            <div className='discussionFormText'><textarea type='text' name='content' placeholder='Explain what you want to discuss...'></textarea></div>
-            <button className='discussionFormButton' type='submit'>Publish</button>
-        </form>
+      <form onSubmit={handleSubmit} className='discussionForm'>
+        <div className='discussionFormInput'>
+          <input type='text' name='title' placeholder='Type your title...' />
+        </div>
+        <div className='discussionFormText'>
+          <textarea
+            type='text'
+            name='content'
+            placeholder='Explain what you want to discuss...'
+          ></textarea>
+        </div>
+        <button className='discussionFormButton' type='submit'>
+          Publish
+        </button>
+      </form>
     </div>
   )
 }
