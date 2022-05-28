@@ -84,7 +84,7 @@ const PrivateOverview = () => {
    *
    */
   const connect = async () => {
-    const response = await fetch(
+    await fetch(
       process.env.REACT_APP_ACCOUNT_API + `/user/${id}/friends/accept`,
       {
         method: 'PATCH',
@@ -98,15 +98,13 @@ const PrivateOverview = () => {
         })
       }
     )
-
-    console.log(response)
   }
 
   /**
    *
    */
   const next = async () => {
-    const response = await fetch(
+    await fetch(
       process.env.REACT_APP_ACCOUNT_API + `/user/${id}/friends/decline`,
       {
         method: 'PATCH',
@@ -120,8 +118,6 @@ const PrivateOverview = () => {
         })
       }
     )
-
-    console.log(response)
   }
 
   return (

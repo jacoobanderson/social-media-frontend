@@ -72,7 +72,7 @@ const ProfileDetailed = (props) => {
     const lastname = event.target.fullname.value.split(' ')[1]
 
     try {
-      const response = await fetch(
+      await fetch(
         process.env.REACT_APP_ACCOUNT_API + '/' + 'user/' + id + '/update',
         {
           method: 'PUT',
@@ -99,12 +99,6 @@ const ProfileDetailed = (props) => {
           })
         }
       )
-      // const res = await response.json()
-      if (response.status === 204) {
-        console.log('works')
-      } else {
-        console.log('failed')
-      }
     } catch (err) {
       console.log(err)
     }

@@ -20,10 +20,6 @@ const DiscussionThread = ({ discussion }) => {
     setDisplay(discussion.replies)
   }, [])
 
-  useEffect(() => {
-    console.log(display)
-  }, [display])
-
   /**
    * Handles the comment functionality.
    *
@@ -32,7 +28,7 @@ const DiscussionThread = ({ discussion }) => {
   const handleCommentSubmit = async (event) => {
     event.preventDefault()
     try {
-      const response = await fetch(
+      await fetch(
         process.env.REACT_APP_ACCOUNT_API +
           `/discussions/${id}/comments/create`,
         {
@@ -49,7 +45,6 @@ const DiscussionThread = ({ discussion }) => {
           })
         }
       )
-      console.log(response)
       setDisplay([
         ...display,
         { owner: user.username, content: event.target.comment.value }

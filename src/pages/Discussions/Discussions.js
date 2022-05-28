@@ -19,15 +19,13 @@ const Discussions = () => {
    * Gets all discussions.
    */
   const getDiscussions = async () => {
-    try {
-      const response = await fetch(
-        process.env.REACT_APP_ACCOUNT_API + '/discussions/all'
-      )
-      const res = await response.json()
-      res.reverse()
+    const response = await fetch(
+      process.env.REACT_APP_ACCOUNT_API + '/discussions/all'
+    )
+    const res = await response.json()
+    res.reverse()
+    if (response.status === 200) {
       setDiscussions(res)
-    } catch (err) {
-      console.log(err)
     }
   }
   return (
