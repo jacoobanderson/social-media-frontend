@@ -13,6 +13,7 @@ import Friends from './pages/Friends/Friends'
 import Discussions from './pages/Discussions/Discussions'
 import Explore from './pages/Explore/Explore'
 import NotFound from './pages/Error/NotFound'
+import About from './pages/About/About'
 /**
  * The app.
  *
@@ -30,6 +31,7 @@ function App () {
             <Route path='/login' element={<Login />} />
             <Route path='/register' element={<Register />} />
             <Route path='/explore' element={<Explore />} />
+            <Route path='/about' element={<About />} />
             <Route path='*' element={<NotFound />} />
             <Route
               path='/:id/find'

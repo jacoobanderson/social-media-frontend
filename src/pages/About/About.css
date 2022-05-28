@@ -1,0 +1,18 @@
+.aboutHeader {
+    text-align: center;
+}
+
+.aboutContainer {
+    color: white;
+    display: grid;
+}
+
+.aboutContent {
+
+}
+
+.aboutContentContainer {
+    justify-self: center;
+    width: 60%;
+    margin-top: 3rem;
+}
