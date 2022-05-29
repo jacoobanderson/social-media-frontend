@@ -62,14 +62,14 @@ const DiscussionThread = ({ discussion }) => {
       </h3>
       <p>{discussion.content}</p>
       <div className=''>
-        <button onClick={() => setComments(!comments)}>Show comments</button>: (
+        <button onClick={() => setComments(!comments)}>{comments ? 'Hide comments' : 'Show comments'}</button>: (
         {discussion.replies ? discussion.replies.length : 0})
       </div>
       {comments
         ? (
         <div>
           {display?.map((replies, index) => (
-            <div key={index}>
+            <div className='discussionComment' key={index}>
               {replies.owner} {replies.content}
             </div>
           ))}

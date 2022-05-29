@@ -57,7 +57,7 @@ const PrivateRoute = ({ children }) => {
       }
     )
     setUser(await response.json())
-    return response.status === 201
+    return response.status === 200
   }
 
   // Checks if the user is authorized and if so, renders the private overview else navigates the user back to the login page.

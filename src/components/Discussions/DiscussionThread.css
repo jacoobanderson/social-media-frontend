@@ -9,3 +9,7 @@
 .discussionThreadContainer h3 {
     margin-top: 0;
 }
+
+.discussionComment {
+    padding: 1rem;
+}
