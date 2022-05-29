@@ -56,24 +56,24 @@ const DiscussionThread = ({ discussion }) => {
   }
 
   return (
-    <div className='discussionThreadContainer'>
+    <div data-testid='discussionContainer' className='discussionThreadContainer'>
       <h3>
         {discussion.title}: By {discussion.owner}
       </h3>
       <p>{discussion.content}</p>
-      <div className=''>
-        <button onClick={() => setComments(!comments)}>{comments ? 'Hide comments' : 'Show comments'}</button>: (
+      <div data-testid='discussionTestCount' className=''>
+        <button data-testid='discussionTestButton' onClick={() => setComments(!comments)}>{comments ? 'Hide comments' : 'Show comments'}</button>: (
         {discussion.replies ? discussion.replies.length : 0})
       </div>
       {comments
         ? (
-        <div>
+        <div data-testid='discussionTestComments'>
           {display?.map((replies, index) => (
             <div className='discussionComment' key={index}>
               {replies.owner} {replies.content}
             </div>
           ))}
-          <form onSubmit={handleCommentSubmit}>
+          <form data-testid='discussionTestForm' onSubmit={handleCommentSubmit}>
             <input name='comment' type='text'></input>
             <button type='submit'>Comment</button>
           </form>

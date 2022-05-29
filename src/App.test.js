@@ -1,10 +1,15 @@
-import { render, screen } from '@testing-library/react'
+import {
+  fireEvent,
+  render,
+  screen
+} from '@testing-library/react'
 import React from 'react'
 import { BrowserRouter } from 'react-router-dom'
 import Home from './pages/Home/Home'
 import FriendCard from './components/Cards/FriendCard'
+import DiscussionThread from './components/Discussions/DiscussionThread'
 
-describe('Homepage', () => {
+describe('Home page', () => {
   it('Should have a title', () => {
     render(
       <BrowserRouter>
@@ -24,23 +29,6 @@ describe('Homepage', () => {
     expect(homeDescription).toBeInTheDocument()
   })
 })
-
-// describe('Friends list', () => {
-//     it('Should render friends', async () => {
-//         // const history = createMemoryHistory()
-//         // const route = '/test/6265546e1d39b656ff93505e'
-//         // history.push(route)
-
-//       render(
-//         <MemoryRouter initialEntries={['/test/6265546e1d39b656ff93505e']}>
-//             <FriendsList />
-//         </MemoryRouter>
-//       )
-
-//       const homeTitle = screen.getByTestId('friendsListTest')
-//       expect(homeTitle).toContain('test')
-//     })
-//   })
 
 describe('Friend card', () => {
   const mockFriend = {
@@ -78,11 +66,78 @@ describe('Friend card', () => {
   })
 })
 
-// describe('Friends List', () => {
-//   const mockFriends = [{ id: 123, firstName: 'test', lastName: 'testsson' }]
-//   it('Should render the amount of friends', () => {
-//     render(<FriendsList friends={mockFriends} />)
-//     const friendsList = screen.getByTestId('friendsListTest')
-//     expect()
-//   })
-// })
+describe('Discussion thread', () => {
+  const mockDiscussion = {
+    title: 'test title',
+    owner: 'tester',
+    content: 'test content',
+    _id: '123',
+    replies: [{ owner: 'test', content: 'test content' }]
+  }
+  const mockCommentCountTwo = {
+    title: 'test title',
+    owner: 'tester',
+    content: 'test content',
+    _id: '123',
+    replies: [{}, {}]
+  }
+  const mockCommentCountTen = {
+    title: 'test title',
+    owner: 'tester',
+    content: 'test content',
+    _id: '123',
+    replies: [{}, {}, {}, {}, {}, {}, {}, {}, {}, {}]
+  }
+
+  it('Should toggle comments', () => {
+    const { rerender } = render(
+      <DiscussionThread discussion={mockDiscussion} />
+    )
+
+    const discussionButton = screen.getByTestId('discussionTestButton')
+    fireEvent.click(discussionButton)
+
+    rerender(<DiscussionThread discussion={mockDiscussion} />)
+
+    const discussionTestForm = screen.getByTestId('discussionTestForm')
+    const discussionTestComments = screen.getByTestId('discussionTestComments')
+
+    expect(discussionTestComments).toContainElement(discussionTestForm)
+
+    fireEvent.click(discussionButton)
+
+    rerender(<DiscussionThread discussion={mockDiscussion} />)
+
+    expect(discussionTestComments).not.toBeInTheDocument()
+  })
+
+  it('Should render count of comments', () => {
+    const { rerender } = render(
+      <DiscussionThread discussion={mockDiscussion} />
+    )
+
+    const discussionCommentCount = screen.getByTestId('discussionTestCount')
+    expect(discussionCommentCount).toHaveTextContent('(1)')
+
+    rerender(<DiscussionThread discussion={mockCommentCountTwo} />)
+
+    const discussionCommentCountTwo = screen.getByTestId('discussionTestCount')
+    expect(discussionCommentCountTwo).toHaveTextContent('(2)')
+
+    rerender(<DiscussionThread discussion={mockCommentCountTen} />)
+
+    const discussionCommentCountTen = screen.getByTestId('discussionTestCount')
+    expect(discussionCommentCountTen).toHaveTextContent('(10)')
+  })
+
+  it('Should render title, owner and content', () => {
+    render(
+      <DiscussionThread discussion={mockDiscussion} />
+    )
+
+    const discussionContainer = screen.getByTestId('discussionContainer')
+    expect(discussionContainer).toHaveTextContent(mockDiscussion.title)
+    expect(discussionContainer).toHaveTextContent(mockDiscussion.owner)
+    expect(discussionContainer).toHaveTextContent(mockDiscussion.content)
+  })
+})
