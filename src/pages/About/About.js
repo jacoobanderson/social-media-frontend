@@ -23,6 +23,17 @@ const About = () => {
           a chat with the person you find interesting and we encourage you to
           explore and learn together. Isimilar also allows every user to start
           discussions to further encourage learning and a good community!
+          <br />
+          The information used in your account is stored in our database and is
+          used only for the purpose of the functionality of the application to
+          allow you as an user to use the application as intended. The account
+          information needed to authenticate yourself is protected by salting
+          and hashing which means that no one has access to your account. The
+          information you put in your profile will be shown to other users to
+          allow you and others to connect with you. Messages that you send to
+          other users are also stored to make the experience a lot better. You
+          can easily delete your own information on the application by doing so
+          in your profile.
         </div>
       </div>
     </div>
