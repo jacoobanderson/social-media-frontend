@@ -50,7 +50,6 @@ const DiscussionForm = ({ setDiscussions, discussions }) => {
       ])
       event.target.title.value = ''
       event.target.content.value = ''
-      console.log(res)
     } catch (err) {
       console.log(err)
     }
@@ -59,13 +58,14 @@ const DiscussionForm = ({ setDiscussions, discussions }) => {
     <div className='discussionFormContainer'>
       <form onSubmit={handleSubmit} className='discussionForm'>
         <div className='discussionFormInput'>
-          <input type='text' name='title' placeholder='Type your title...' />
+          <input type='text' name='title' placeholder='Type your title...' required />
         </div>
         <div className='discussionFormText'>
           <textarea
             type='text'
             name='content'
             placeholder='Explain what you want to discuss...'
+            required
           ></textarea>
         </div>
         <button className='discussionFormButton' type='submit'>

@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import { UserContext } from '../../hooks/UserContext'
 import './ProfileDetailed.css'
 
@@ -14,6 +14,28 @@ const ProfileDetailed = (props) => {
   const [image, setImage] = useState(props.user.image)
   const { user, setUser } = useContext(UserContext)
   const { id } = useParams()
+  const navigate = useNavigate()
+
+  /**
+   * Handles the login when submit is pressed.
+   *
+   * @param {object} event The data of the event.
+   */
+  const handleDelete = async (event) => {
+    event.preventDefault()
+    await fetch(
+      process.env.REACT_APP_ACCOUNT_API + `/${id}/delete`,
+      {
+        method: 'DELETE',
+        mode: 'cors',
+        credentials: 'include',
+        headers: {
+          'Content-type': 'application/json'
+        }
+      }
+    )
+    navigate('/')
+  }
 
   /**
    * Converts a file to base64.
@@ -197,6 +219,7 @@ const ProfileDetailed = (props) => {
                   </div>
                   <button onClick={handleEdit}>Edit</button>
                   <button type='submit'>Save</button>
+                  <button onClick={handleDelete} type='submit'>Delete account</button>
                 </div>
                   )
                 : (
