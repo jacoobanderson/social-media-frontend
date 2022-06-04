@@ -35,7 +35,6 @@ const Login = () => {
         }
       )
       const res = await response.json()
-      console.log(res)
       if (response.status === 201) {
         navigate(`/${res.id}/find`)
       } else {

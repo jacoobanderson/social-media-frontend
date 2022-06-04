@@ -82,6 +82,7 @@ const Register = () => {
                 type='password'
                 name='password'
                 placeholder='Password'
+                minLength={10}
                 required
               />
             </div>
