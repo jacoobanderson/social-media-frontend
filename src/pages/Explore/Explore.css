@@ -1,7 +1,6 @@
 .exploreWrapper {
     width: 100%;
     display: grid;
-    justify-content: center;
 }
 
 .exploreWrapper h1 {
